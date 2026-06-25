@@ -2,17 +2,17 @@
 
 ## Identified Problem or Need
 
-Replace this text with a clearly stated problem or need that exists that your project will attempt to solve / fulfil.
+Currently the system for booking the studios in m block is a paper sign up sheet. When people make errors or want to change their bookings, it results in a messy page, with crossed out and erased names that make the experience difficult for all.
 
 
 ## End-User Requirements
 
-Replace this text with a description of your typical end-users and their specific needs / expectations / requirements.
+End users for this problem would be students active in m block that book studios regularly, the pfa teachers, and the pfa admin who manages the bookings. They require a simple and easy to use means of booking, with instructions and clear directions. The teachers and admin need priority booking for music lessons and other important appointments. Bookings need to be easily cancelled or deleted
 
 
 ## Proposed Solution
 
-Replace this text with a brief statement about the system that you intend to create, including the key functionality it should have.
+I intend to create a web app to solve this problem, which will have a user friendly ui, 
 
 
 # Relevant Implications
