@@ -1,0 +1,61 @@
+{#=====================================================
+  Base template
+  - Used as the basis of all pages
+=====================================================#}
+
+<!DOCTYPE html>
+
+<html lang="en" data-theme="light">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Notes Demo {% block title %}{% endblock %}</title>
+
+    <link rel="icon" href="/static/images/note.svg">
+
+    <script src="/static/js/utils.js"></script>
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.slate.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            {# Left side #}
+            <ul>
+                <li class="app-name">
+                    <a href="/">
+                        <img src="/static/images/note.svg" alt="Note">
+                        Notes Demo
+                    </a>
+                </li>
+            </ul>
+
+            {# Right side #}
+            <ul>
+                <li><a href="/">All Notes</a></li>
+                <li><a href="/">Link</a></li>
+                <li><a href="/">Link</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    {# Show flash messages from any previous events #}
+    {% include "partials/messages.jinja" %}
+
+    <main>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+</body>
+
+</html>
+
