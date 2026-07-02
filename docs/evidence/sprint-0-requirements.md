@@ -44,31 +44,31 @@ A website that is going to be used by students of all year levels and staff will
 
 ### Impact / Considerations
 
-I will ensure to use high contrast colours throughout the site for my text, and ensure all text is large enough to be read and in fonts that are easily read. I will reduce 
+I will ensure to use high contrast colours throughout the site for my text, and ensure all text is large enough to be read and in fonts that are easily read. I will reduce the need for keyboard inputs, and ensure the app is mainly navigated via clicks/taps, which will make it adaptable to ipads and other touchscreen devices.
 
 
 
 ## AESTHETICS
 
-Replace this text with a clear explanation of what the implication means.
+The website should have an attractive design that pleases its users, that follows a relevant theme and that adds to the overall user experience
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+A website for Waimea College should match the look and feel of other waimea college sites and of the schools branding, and allows for more clarity and flow in the UX
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this implication.
+I will use the two main colours on the waimea wesbite, in combination with a pleasing dark mode theme to make the site fit within the design while still being unique and pleasing to the eye. Buttons will consistently be the same colour, letting the user know what is and isnt clickable through colour as well as other design elements, improving the flow.
 
 
 
 ## END USER
 
-Replace this text with a clear explanation of what the implication means.
+The specific needs of the end users should always be considered when designing a system
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the implication is relevant to this particular project.
+The website will be used by all ages, so I need to consider the needs of each demopraphic carefully. This is also a webstite for school meaning phones are unlikely.
 
 ### Impact / Considerations
 
