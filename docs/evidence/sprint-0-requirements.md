@@ -8,6 +8,13 @@ Currently the system for booking the studios in m block is a paper sign up sheet
 ## End-User Requirements
 
 End users for this problem would be students active in m block that book studios regularly, the pfa teachers, and the pfa admin who manages the bookings. They require a simple and easy to use means of booking, with instructions and clear directions. The teachers and admin need priority booking for music lessons and other important appointments. Bookings need to be easily cancelled or deleted
+On 20/7 I had a conversation with my main end user, a staff member, about what she wanted for the app. She requested the following features:
+Admin controls to override student bookings
+display bookings for all periods including before and after school
+only allow students to book break time slots, no more than a week in advance, and with a booking limit of three per week.
+booking history only shown for the current week, previous weeks deleted
+student logins be tied to school emails
+display images of each studio
 
 
 ## Proposed Solution

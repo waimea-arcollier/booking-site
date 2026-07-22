@@ -47,26 +47,30 @@ Replace this text with a description of how the data will be processed to achiev
 
 The first stage of prototyping was to explore how the UI might 'flow' between states, based on the required functionality.
 
-This Figma demo shows the initial design for the UI 'flow':
+This Penpot demo shows the initial design for the UI 'flow':
 
-**FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT**
+![Flow](screenshots/flow.png)
+
+https://design.penpot.app/#/view?file-id=f0485fb1-4e63-8165-8008-3908162e8168&page-id=f0485fb1-4e63-8165-8008-3908162e8169&section=interactions&index=0&share-id=6956fb43-d0b4-807f-8008-4224ada5fb9a
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+My first end user, the staff member, was happy with the flow of the ui and had no issues. She requested I replace the word room with studio for clarity.
+My second end user, a music student, said "a way to access the individual room information through te 'My bookings' tab would be lovely."
+My third end user, another music student, was satisfied with the flow, but requested that after a user logs in, the app redirects to the "My bookings" tab instead of the home screen.
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+Added requested features.
 
-*IMPROVED FIGMA FLOW - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
-
+![Improved Flow](screenshots/flow2.png)
+https://design.penpot.app/#/view?file-id=a1a9e568-e174-80fb-8008-5d1c38774a33&page-id=f0485fb1-4e63-8165-8008-3908162e8169&section=interactions&index=0&share-id=64054412-1123-81ed-8008-5d1cdea754d8
 
 ## Initial UI Prototype
 
 The next stage of prototyping was to develop the layout for each screen of the UI.
 
-This Figma demo shows the initial layout design for the UI:
+This Penpot demo shows the initial layout design for the UI:
 
 *FIGMA PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
 
