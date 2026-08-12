@@ -7,7 +7,7 @@ Currently the system for booking the studios in m block is a paper sign up sheet
 
 ## End-User Requirements
 
-End users for this problem would be students active in m block that book studios regularly, the pfa teachers, and the pfa admin who manages the bookings. They require a simple and easy to use means of booking, with instructions and clear directions. The teachers and admin need priority booking for music lessons and other important appointments. Bookings need to be easily cancelled or deleted
+End users for this problem would be students active in m block that book studios regularly, the pfa teachers, and the pfa admin who manages the bookings. They require a simple and easy to use means of booking, with instructions and clear directions. The teachers and admin need priority booking for music lessons and other important appointments. Bookings need to be easily cancelled or deleted. Since this will be used in school by students, the main design of the website should be for desktop as phones are prohibitied in school.
 On 20/7 I had a conversation with my main end user, a staff member, about what she wanted for the app. She requested the following features:
 Admin controls to override student bookings
 display bookings for all periods including before and after school
@@ -99,41 +99,51 @@ I will need to code smoothly and well to ensure bugs are easily fixed. A series 
 
 # User Experience (UX) Principles
 
-## NAME OF UX PRINCIPLE 1
+## Know Your User
 
-Replace this text with a clear explanation of what the principle means.
-
-### Relevance to the System
-
-Replace this text with an explanation of why the principle is relevant to this particular project.
-
-### Impact / Considerations
-
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
-
-
-## NAME OF UX PRINCIPLE 2
-
-Replace this text with a clear explanation of what the principle means.
+Considering the type of people your end users are, thier age, experience, context, and what devices they will use most.
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the principle is relevant to this particular project.
+As my website is for a certain demographic of waimea college, staff and students of m block, I will need to know what they want out of a system for the block. students who book studios regularly will know the ins and outs of the system, and teachers who manage it will provide crucial back end information for the admin side, information i would not have if i did not know my users.
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
+To make sure that I know my users well, and that the system works well for them, I will:
+
+Talk to my end-users to discover specific needs they have
+Regularly test my ideas, designs and the system with the end-users to see what is working well or not.
+Make choices with their needs in mind.
 
 
-## NAME OF UX PRINCIPLE 3
+## Consistent and Clear
 
-Replace this text with a clear explanation of what the principle means.
+Ensure that pages laid out in a similar way, navigation is consistent across all pages, and buttons and links easy to spot
 
 ### Relevance to the System
 
-Replace this text with an explanation of why the principle is relevant to this particular project.
+A site meant to be used by all students with different levels of digital literacy, will need to be consistent throughout to prevent confusion. 
 
 ### Impact / Considerations
 
-Replace this text with an explanation of what you will need to consider moving forward and how the project will be impacted by this principle.
+To make sure that create a system that is consistent and clear, I will:
+
+Come up with a design system that takes into account the needs of the end-users
+Discuss layouts and prototypes with end-users to ensure they are clear
+
+
+## Test and Improve
+
+Have people outside the design team tried to use your site, make sure they are able to complete core tasks without help, and make changes on their feedback.
+
+### Relevance to the System
+
+I will need to make sure this site is functional and easy to use by people other than myself. My end users must be able to navigate the site wihtout asisstance to ensure that students new to the system will be able to use it easily.
+
+### Impact / Considerations
+
+To make sure that the system gives the best possible UX for my users, I will:
+
+Regularly test the design and working system with end users to gather feedback
+Act upon the feedback to improve the system at every stage
 

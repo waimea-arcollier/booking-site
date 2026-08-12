@@ -55,8 +55,12 @@ https://design.penpot.app/#/view?file-id=f0485fb1-4e63-8165-8008-3908162e8168&pa
 
 ### Testing
 
+To test this flow i sent it to my end users to test and give feedback on.
+
 My first end user, the staff member, was happy with the flow of the ui and had no issues. She requested I replace the word room with studio for clarity.
-My second end user, a music student, said "a way to access the individual room information through te 'My bookings' tab would be lovely."
+
+My second end user, a music student, said "a way to access the individual room information through the 'My bookings' tab would be lovely."
+
 My third end user, another music student, was satisfied with the flow, but requested that after a user logs in, the app redirects to the "My bookings" tab instead of the home screen.
 
 ### Changes / Improvements
@@ -72,7 +76,8 @@ The next stage of prototyping was to develop the layout for each screen of the U
 
 This Penpot demo shows the initial layout design for the UI:
 
-*FIGMA PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+![Initial Ui](screenshots/ui1.png)
+https://design.penpot.app/#/view?file-id=a1a9e568-e174-80fb-8008-5d1d16285281&page-id=a1a9e568-e174-80fb-8008-5d1d16285282&section=interactions&index=0&share-id=81f57451-85cc-819d-8008-7823d583471e
 
 ### Testing
 
