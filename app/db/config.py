@@ -15,30 +15,85 @@
 #     SEED_DATA = "INSERT INTO name (...)" or None
 #----------------------------------------------------------------------------
 
-class NoteTable:
 
-    NAME = "note"
+class UsersTable:
+
+    NAME = "users"
 
     SCHEMA = """
-        CREATE TABLE note (
+        CREATE TABLE users (
             id      INTEGER PRIMARY KEY AUTOINCREMENT,
-            title   TEXT NOT NULL,
-            body    TEXT,
-            pinned  INTEGER DEFAULT 0,
-            created TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            username   TEXT NOT NULL,
+            email   TEXT NOT NULL   ,
+            password  TEXT NOT NULL,
+            staff BOOLEAN
+        )
+    """
+
+class StudiosTable:
+
+    NAME = "studios"
+
+    SCHEMA = """
+        CREATE TABLE studios (
+            id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            name   TEXT NOT NULL,
+            image_file   TEXT    
         )
     """
 
     SEED_DATA = """
-        INSERT INTO note (title, pinned, body)
+        INSERT INTO studios (name)
         VALUES
-            ("Welcome!",      1, "This is a demo application using Flask, Jinja and SQLite."),
-            ("Shopping List", 0, "Milk\nBread\nEggs\nCheese"),
-            ("Meeting Notes", 0, "Discussed project timeline.\n\nAction items:\n- Review design\n- Update docs"),
-            ("Recipe: Pasta", 0, "Ingredients:\n- 500g pasta\n- Tomato sauce\n- Garlic\n\nCook pasta, add sauce, enjoy!"),
-            ("Important!",    1, "Remember to backup your database regularly.")
+            ("Studio 3"),
+            ("Studio 4"),
+            ("Studio 5"),
+            ("Band Room")
     """
 
+class TimeslotsTable:
+
+    NAME = "timeslots"
+
+    SCHEMA = """
+        CREATE TABLE timeslots (
+            id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            display_name  TEXT NOT NULL,
+            staff_only BOOLEAN, 
+            time_start  TEXT,
+            time_end  TEXT 
+        )
+    """
+
+    SEED_DATA = """
+        INSERT INTO timeslots (display_name, staff_only, time_start, time_end)
+        VALUES
+            ("Before School", false, "0:00", "9:00"),
+            ("Period 1", true, "9:01", "10:00"),
+            ("Period 2", true, "10:01", "11:00"),
+            ("Break 1", false, "11:01", "11:25"),
+            ("Period 3", true, "11:26", "12:25"),
+            ("Period 4", true, "12:26", "13:25"),
+            ("Break 2", false, "13:26", "14:10"),
+            ("Period 5", true, "14:11", "15:10"),
+            ("After School", false, "15:11", "23:59")
+            
+    """
+
+class BookingsTable:
+
+    NAME = "bookings"
+
+    SCHEMA = """
+        CREATE TABLE bookings (
+            id      INTEGER PRIMARY KEY AUTOINCREMENT,
+            studio_booked   TEXT NOT NULL,
+            user_booked   INTEGER,
+            booking_owner  INTEGER,
+            day_booked  TEXT NOT NULL,
+            time_booked  TEXT 
+        )
+    """
 # Add more table classes here...
 
 
@@ -59,7 +114,10 @@ class NoteTable:
 #----------------------------------------------------------------------------
 
 TABLES = [
-    NoteTable,
+    BookingsTable,
+    UsersTable,
+    StudiosTable,
+    TimeslotsTable
     # Add more tables here...
 ]
 

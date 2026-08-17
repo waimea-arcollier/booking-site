@@ -81,7 +81,8 @@ https://design.penpot.app/#/view?file-id=a1a9e568-e174-80fb-8008-5d1d16285281&pa
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+I sent this ui prototype to my end users for feedback.
+My first end user, the student, said "On the home page, i think that the studio 5 design looks best, but I think that the studio 4 one looks better in the "My bookings" tab, so to keep it all consistant, I think that should be the choice. I also think that left alignment looks best for the menu. One other thing is that I think the home button should be with all the other buttons on the side menu, as it is kinda weird that all the buttons but that one is on the side. But looks pretty good otherwise"
 
 ### Changes / Improvements
 
