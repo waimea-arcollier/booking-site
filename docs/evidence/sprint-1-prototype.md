@@ -82,13 +82,16 @@ https://design.penpot.app/#/view?file-id=a1a9e568-e174-80fb-8008-5d1d16285281&pa
 ### Testing
 
 I sent this ui prototype to my end users for feedback.
-My first end user, the student, said "On the home page, i think that the studio 5 design looks best, but I think that the studio 4 one looks better in the "My bookings" tab, so to keep it all consistant, I think that should be the choice. I also think that left alignment looks best for the menu. One other thing is that I think the home button should be with all the other buttons on the side menu, as it is kinda weird that all the buttons but that one is on the side. But looks pretty good otherwise"
+
+My first end user, the staff member, proposed the studios to be displayed in a grid of boxes, as opposed to rectangular bars. She also was unsure of the next booking display and requested options without it. she had no opinion on the my bookings section, saying she was happy with either display. She was otherwise happy with the design.
+
+My second end user, a music student, said "On the home page, i think that the studio 5 design looks best, but I think that the studio 4 one looks better in the "My bookings" tab, so to keep it all consistant, I think that should be the choice. I also think that left alignment looks best for the menu. One other thing is that I think the home button should be with all the other buttons on the side menu, as it is kinda weird that all the buttons but that one is on the side. But looks pretty good otherwise"
 
 ### Changes / Improvements
 
 Replace this text with notes any improvements you made as a result of the testing.
 
-*FIGMA IMPROVED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+https://design.penpot.app/#/view?file-id=3be9e5e1-190f-8090-8008-7e8b1dade9b4&page-id=a1a9e568-e174-80fb-8008-5d1d16285282&section=interactions&index=0&share-id=502b4555-3f5f-807a-8008-8a3b4052c3e3
 
 
 ## Refined UI Prototype

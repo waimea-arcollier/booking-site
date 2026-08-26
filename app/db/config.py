@@ -29,6 +29,11 @@ class UsersTable:
             staff BOOLEAN
         )
     """
+    SEED_DATA = """
+    INSERT INTO users (username, email, password, staff)
+    VALUES
+        ("jrdoe", "jrdoe@waimea.school.nz", "password", false)
+    """
 
 class StudiosTable:
 
@@ -87,12 +92,17 @@ class BookingsTable:
     SCHEMA = """
         CREATE TABLE bookings (
             id      INTEGER PRIMARY KEY AUTOINCREMENT,
-            studio_booked   TEXT NOT NULL,
+            studio_booked   INTEGER,
             user_booked   INTEGER,
             booking_owner  INTEGER,
             day_booked  TEXT NOT NULL,
-            time_booked  TEXT 
+            time_booked  INTEGER 
         )
+    """
+    SEED_DATA = """
+    INSERT INTO bookings (studio_booked, user_booked, booking_owner, day_booked, time_booked)
+    VALUES
+        (1, 1, 1, "mon", 4),
     """
 # Add more table classes here...
 
