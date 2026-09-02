@@ -1,0 +1,33 @@
+{#=====================================================
+  Home page
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+    <h2>Time Placeholder</h2>
+
+    <section id="help">
+
+        {% if logged_in %}
+
+            <p>u r logged in</p>
+        
+        {% if user.staff %}
+
+            <p>u r techer</p>    
+
+        {% else %}
+
+            <p>u r not logged in</p>
+
+            <a href="/login">Log in?</a>
+
+        {% endif %}
+
+    </section>
+
+{% endblock %}
+

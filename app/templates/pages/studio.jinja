@@ -1,0 +1,33 @@
+{#=====================================================
+  Home page
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+    <h2>{{studio.name}}</h2>
+
+    <section id="help">
+
+        {% if logged_in %}
+
+            <p>havent built this yet lol ur logged in tho</p>
+
+        {% if user.staff %}
+
+            <p>u r techer</p>    
+
+        {% else %}
+
+            <p>u r not logged in</p>
+            
+            <a href="/login">Log in?</a>
+
+        {% endif %}
+
+    </section>
+
+{% endblock %}
+

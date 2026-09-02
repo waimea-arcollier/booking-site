@@ -14,6 +14,7 @@ from app.helpers import *
 
 # Create the app
 app = Flask(__name__)
+logged_in = False
 
 
 #===========================================================
@@ -41,7 +42,88 @@ def show_studios():
 
         return render_template("pages/home.jinja", studios=studios)
 
+#-----------------------------------------------------------
+# Login page - Sign the user in
+#-----------------------------------------------------------
+@app.get("/login")
+def login_info():
+    with connect_db() as db:
+        sql = """
+            SELECT username, password
+            FROM users
+        """
+        params = ()
+        users = db.execute(sql, params).fetchall()
 
+        return render_template("pages/login.jinja", users=users)
+    
+#-----------------------------------------------------------
+# Sign up page - Create an account 
+#-----------------------------------------------------------
+@app.get("/signup")
+
+@app.post("/signup")
+def add_user():
+    username = request.form.get('username', '').strip().lower()
+    email = request.form.get('email', '').strip()
+    password = request.form.get('password', '').strip()
+    
+    if "@waimea.school.nz" not in email:
+        flash(f"Email must be a valid waimea email adress", "error")
+        return redirect("/signup")
+
+    with connect_db() as db:
+        sql = "SELECT id FROM users WHERE username=?"
+        params = (username,)
+        user = db.execute(sql, params).fetchone()
+
+        if user:
+            flash(f"Username '{username}' already exists", "error")
+            return redirect("/signup")
+
+        pass_hash = generate_password_hash(password)
+
+        sql = """
+            INSERT INTO users (username, email, pass_hash)
+            VALUES (?, ?, ?, ?)
+        """
+        params = (username, email, pass_hash)
+        db.execute(sql, params)
+
+        flash("Account created. Please login", "success")
+        return redirect("/login")
+    
+#-----------------------------------------------------------
+# Help page - Useful information based on user state
+#-----------------------------------------------------------
+@app.get("/help")
+def get():
+    with connect_db() as db:
+        sql = """
+            SELECT staff
+            FROM users
+        """
+        params = ()
+        staff = db.execute(sql, params).fetchall()
+        
+        return render_template("pages/help.jinja", logged_in=logged_in, staff=staff)    
+    
+#-----------------------------------------------------------
+# Studio page - display requested studio
+#-----------------------------------------------------------
+# @app.get("/studio/<int:id>")
+# def get():
+#     with connect_db() as db:
+#         sql = """
+#             SELECT staff
+#             FROM users
+#         """
+#         params = ()
+#         staff = db.execute(sql, params).fetchall()
+        
+#         return render_template("pages/help.jinja", logged_in=logged_in, staff=staff)  
+    
+    
 #===========================================================
 # Configure the app
 #===========================================================

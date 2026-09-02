@@ -1,0 +1,45 @@
+{#=====================================================
+  Home page
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+    <h2>Time Placeholder</h2>
+
+    <section id="form">
+        <article class="form">
+
+            <form action="/" method="" class="login">
+    
+                <h5>Username</h5>
+                <input
+                    type="text"
+                    name="username"
+                    maxlength="16"
+                    placeholder="Username"
+                    required
+                >
+                
+                <h5>Password</h5>
+                <input
+                    type="text"
+                    name="password"
+                    placeholder="Password"
+                >
+    
+                <button class="submit">Log In</button>
+    
+            </form>
+    
+        </article>
+
+        <a href="/signup">Sign Up?</a>
+
+    </section>
+
+
+{% endblock %}
+
