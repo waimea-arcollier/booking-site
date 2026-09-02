@@ -1,0 +1,35 @@
+{#=====================================================
+  Home page
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+    <h2>Time Placeholder</h2>
+
+    <section id="studios">
+
+        {% for studio in studios %}
+
+            <div class="studio">
+
+                <header>
+                    <h3>{{ studio.name }}</h3>
+                </header>
+
+                <p>test test test</p>
+
+            </div>
+
+        {% else %}
+
+            <p>I broke it</p>
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}
+
