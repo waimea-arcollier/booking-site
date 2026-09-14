@@ -26,7 +26,7 @@ class UsersTable:
             username   TEXT NOT NULL,
             email   TEXT NOT NULL   ,
             password  TEXT NOT NULL,
-            staff BOOLEAN
+            staff BOOLEAN NOT NULL
         )
     """
     SEED_DATA = """

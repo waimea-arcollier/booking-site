@@ -11,19 +11,17 @@
 
     <section id="help">
 
-        {% if logged_in %}
+        {% if session.logged_in %}
 
             <p>u r logged in</p>
-        
-        {% if user.staff %}
 
-            <p>u r techer</p>    
-
+            {% if session.user.staff %}
+            <p>and u staff</p>
+            {% endif %}
+            
         {% else %}
 
             <p>u r not logged in</p>
-
-            <a href="/login">Log in?</a>
 
         {% endif %}
 

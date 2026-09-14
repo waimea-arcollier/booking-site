@@ -25,14 +25,20 @@
 <body>
 
     <header>
-        <a href="/login">
-            Log In
-        </a>
+        {% if session.logged_in %}
+            <a href="/logout">Logout</a>
+        {% else %}
+            <a href="/login">Login</a>
+        {% endif %} 
 
         <nav>
             <a href="/">Home</a>
+            {% if session.logged_in %}
+                 <a href="/">Account settings</a>
+                 <a href="/">My Bookings</a>
+                 <a href="/">Book a studio</a>
+            {% endif %} 
             <a href="/help">Help</a>
-            <a href="/">Link</a>
         </nav>
     </header>
 
