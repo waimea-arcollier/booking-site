@@ -15,10 +15,10 @@
 
             <p>havent built this yet lol ur logged in tho</p>
 
-        {% if user.staff %}
-
-            <p>u r techer</p>    
-
+            {% if user.staff %}
+                <p>u r techer</p>    
+            {% endif %}
+            
         {% else %}
 
             <p>u r not logged in</p>

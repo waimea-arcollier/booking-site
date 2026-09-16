@@ -1,0 +1,51 @@
+{#=====================================================
+  Home page
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+    <h2>Time Placeholder</h2>
+
+    <section id="settings">
+
+            <p> u are {{ session.user.username }} </p>
+
+            <article class="form">
+
+                <form action="/edit/{{session.user.id}}" method="POST" class="edit">
+
+                    <h5>Username</h5>
+                    <input
+                        type="text"
+                        value="{{session.user.username}}"
+                        name="username"
+                        required
+                    >
+
+                    <h5>Email Adress</h5>
+                    <input
+                        value="{{session.user.email}}"
+                        name="email"
+                        required
+                    >
+                    
+                    <h5>Password i aint doing ts rn</h5>
+
+                    <button class="submit">Save Changes</button>
+
+            </article>
+            {% if session.user.staff %}
+            <p>Something pls don't edit ig temp</p>
+            {% endif %}
+
+            <a href="/logout">Logout</a>
+            {%if not session.user.staff%}
+            <a href="/temp">Delete account</a>
+            {%endif%}
+    </section>
+
+{% endblock %}
+

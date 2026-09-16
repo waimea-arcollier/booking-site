@@ -10,6 +10,7 @@ from os import getenv
 from io import BytesIO
 import html
 from app.helpers import *
+from datetime import date, timedelta
 
 
 # Create the app
@@ -99,29 +100,33 @@ def show_signup():
 @app.post("/signup")
 def add_user():
     username = request.form.get('username', '').strip().lower()
-    email = request.form.get('email', '').strip()
+    email = request.form.get('email', '').strip().lower()
     password = request.form.get('password', '').strip()
     
-    with connect_db() as db:
-        sql = "SELECT id FROM users WHERE username=?"
-        params = (username,)
-        user = db.execute(sql, params).fetchone()
+    if "@waimea.school.nz" in email:
+        with connect_db() as db:
+            sql = "SELECT id FROM users WHERE username=?"
+            params = (username,)
+            user = db.execute(sql, params).fetchone()
 
-        if user:
-            flash(f"Username '{username}' already exists", "error")
-            return redirect("/signup")
+            if user:
+                flash(f"Username '{username}' already exists", "error")
+                return redirect("/signup")
 
-        pass_hash = generate_password_hash(password)
+            pass_hash = generate_password_hash(password)
 
-        sql = """
-            INSERT INTO users (username, email, pass_hash)
-            VALUES (?, ?, ?)
-        """
-        params = (username, email, pass_hash)
-        db.execute(sql, params)
+            sql = """
+                INSERT INTO users (username, email, pass_hash, staff)
+                VALUES (?, ?, ?, 0)
+            """
+            params = (username, email, pass_hash)
+            db.execute(sql, params)
 
-        flash("Account created. Please login", "success")
-        return redirect("/login")
+            flash("Account created. Please login", "success")
+            return redirect("/login")
+    else:
+        flash(f"Please use a valid Waimea College email adress", "error")
+        return redirect("/signup")
     
 #-----------------------------------------------------------
 # Help page - Useful information based on user state
@@ -130,6 +135,56 @@ def add_user():
 def show_help():
         return render_template("pages/help.jinja")    
     
+#-----------------------------------------------------------
+# Account page - Edit account info, logout, delete account
+#-----------------------------------------------------------
+@app.get("/account")
+@login_required
+def show_account():
+    #use the session info? remember how to edit. another form so more routes.
+        return render_template("pages/account.jinja")
+    
+@app.post("/edit/<int:id>")
+def edit_info_post(id):
+    # Get the data from the form
+    username = request.form.get('username', '').strip().lower()
+    email = request.form.get('email', '').strip().lower()
+
+    with connect_db() as client:
+        # Add the thing to the DB
+        sql ="""UPDATE users
+                SET username = ?, email = ?
+                WHERE id = ?
+             """
+        params = [username, email, id,]
+        client.execute(sql, params)
+    
+
+        session["user"]["username"] = username
+        session["user"]["email"] = email
+        
+        
+        # Go back
+        return redirect("/account")
+
+#-----------------------------------------------------------
+# Book page - Book a studio for a timeslot 
+#-----------------------------------------------------------
+@app.get("/book")
+@login_required
+def show_book():
+    #form so will need a post route too. select name, id from studios
+        return render_template("pages/book.jinja")
+   
+#-----------------------------------------------------------
+# Bookings page - Displays the users bookings for the week
+#-----------------------------------------------------------
+@app.get("/bookings")
+@login_required
+def show_bookings():
+    #something like select studio_booked, day_booked, time,booked where user.id = user_booked ??
+        return render_template("pages/bookings.jinja")
+       
 #-----------------------------------------------------------
 # Studio page - display requested studio
 #-----------------------------------------------------------
@@ -153,6 +208,25 @@ def logout_user():
     session.clear()
     flash(f"You have been logged out", "success")
     return redirect("/")
+
+#-----------------------------------------------------------
+# Delete account
+#-----------------------------------------------------------
+@app.get("/temp")
+@login_required
+def temp():
+        return render_template("pages/temp.jinja")
+    
+@app.get("/delete")
+def delete_user():
+    id = session["user"]["id"]
+    with connect_db() as db:
+        sql = "DELETE FROM users WHERE id = ?"
+        params = (id,)
+        db.execute(sql, params)
+        session.clear()
+        flash(f"Your account has been deleted.", "success")
+        return redirect("/")
 #===========================================================
 # Configure the app
 #===========================================================

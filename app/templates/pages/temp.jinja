@@ -1,0 +1,15 @@
+{#=====================================================
+  Home page
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+    <section>
+        <h2>r u sure u want 2 delete {{session.user.username}}</h2>
+        <a href="/delete">Delete account</a>
+        <a href="/account">go back</a>
+    </section>
+{% endblock %}
+
