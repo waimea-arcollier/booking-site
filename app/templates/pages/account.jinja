@@ -11,8 +11,6 @@
 
     <section id="settings">
 
-            <p> u are {{ session.user.username }} </p>
-
             <article class="form">
 
                 <form action="/edit/{{session.user.id}}" method="POST" class="edit">
@@ -31,14 +29,12 @@
                         name="email"
                         required
                     >
-                    
-                    <h5>Password i aint doing ts rn</h5>
 
                     <button class="submit">Save Changes</button>
 
             </article>
             {% if session.user.staff %}
-            <p>Something pls don't edit ig temp</p>
+            <p>Disclaimer for editing the info for staff since it's a shared account smth like "you are using a shared admin account, please ask before changing the accounts information"</p>
             {% endif %}
 
             <a href="/logout">Logout</a>

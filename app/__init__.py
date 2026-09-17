@@ -150,21 +150,27 @@ def edit_info_post(id):
     username = request.form.get('username', '').strip().lower()
     email = request.form.get('email', '').strip().lower()
 
-    with connect_db() as client:
-        # Add the thing to the DB
-        sql ="""UPDATE users
-                SET username = ?, email = ?
-                WHERE id = ?
-             """
-        params = [username, email, id,]
-        client.execute(sql, params)
-    
+    if "@waimea.school.nz" in email:
+        with connect_db() as client:
+            # Add the thing to the DB
+            sql ="""UPDATE users
+                    SET username = ?, email = ?
+                    WHERE id = ?
+                """
+            params = [username, email, id,]
+            client.execute(sql, params)
+        
 
-        session["user"]["username"] = username
-        session["user"]["email"] = email
-        
-        
-        # Go back
+            session["user"]["email"] = email
+            session["user"]["username"] = username
+            session.modified = True
+            
+            flash("Account info updated sucessfully", "success")
+            
+            # Go back
+            return redirect("/account")
+    else:
+        flash(f"Please use a valid Waimea College email adress", "error")
         return redirect("/account")
 
 #-----------------------------------------------------------
@@ -186,19 +192,34 @@ def show_bookings():
         return render_template("pages/bookings.jinja")
        
 #-----------------------------------------------------------
-# Studio page - display requested studio
+# Studio page - display requested studio (idk wtf is going on)
 #-----------------------------------------------------------
 # @app.get("/studio/<int:id>")
 # def get():
-#     with connect_db() as db:
-#         sql = """
-#             SELECT staff
-#             FROM users
-#         """
-#         params = ()
-#         staff = db.execute(sql, params).fetchall()
+#     with connect_db() as client:
+#         # Get the workout details from the DB
+#         sql = "SELECT id, name FROM studios WHERE id=?"
+#         params = [id]
+#         result = client.execute(sql, params)
         
-#         return render_template("pages/help.jinja", logged_in=logged_in, staff=staff)  
+#         # Did we get a result?
+#         if result.rows:
+#             # yes, so show it on the page
+#             studio = result.rows[0]
+            
+#             user_id = session["user"]["id"]
+            
+#             # Get the workout details from the DB
+#             sql = "SELECT studio_booked, day_booked, time_booked FROM sessions WHERE studio_booked=? WHERE user_booked=? ORDER BY date DESC"
+#             params = [id, user_id]
+#             result = client.execute(sql, params)
+#             sessions = result.rows
+
+#             return render_template("pages/workout.jinja", studio=studio, sessions=sessions)
+
+#         else:
+#             # No, so show error
+#             return not_found_error() 
     
 #-----------------------------------------------------------
 # Logout - clear the session

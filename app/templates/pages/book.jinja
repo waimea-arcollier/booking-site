@@ -9,21 +9,14 @@
 
     <h2>Time Placeholder</h2>
 
-    <section id="help">
+    <section id="book">
 
-        {% if session.logged_in %}
-
-            <p>This is where I will put the help section for logged in users.</p>
+            <p>This is where I will put the booking form for logged in users.</p>
 
             {% if session.user.staff %}
-            <p>This is where I will put the help section for admin</p>
+            <p>This is where I will put the booking options for admin</p>
             {% endif %}
             
-        {% else %}
-
-            <p>This is where I will put the help section for logged out users</p>
-
-        {% endif %}
 
     </section>
 
