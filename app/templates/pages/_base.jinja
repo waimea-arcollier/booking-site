@@ -35,7 +35,13 @@
             <a href="/">Home</a>
             {% if session.logged_in %}
                  <a href="/account">Account settings</a>
-                 <a href="/bookings">My Bookings</a>
+                 <a href="/bookings">
+                    {% if session.user.staff %}
+                    All Bookings
+                    {% else %}
+                    My Bookings
+                    {% endif %} 
+                 </a>
                  <a href="/book">Book a studio</a>
             {% endif %} 
             <a href="/help">Help</a>

@@ -102,7 +102,7 @@ class BookingsTable:
     SEED_DATA = """
     INSERT INTO bookings (studio_booked, user_booked, booking_owner, day_booked, time_booked)
     VALUES
-        (1, 1, 1, "mon", 4),
+        (1, 1, 1, "mon", 4)
     """
 # Add more table classes here...
 

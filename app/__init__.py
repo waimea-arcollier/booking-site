@@ -29,7 +29,7 @@ logged_in = False
 def show_studios():
     with connect_db() as db:
         sql = """
-            SELECT name
+            SELECT name, id
             FROM studios
         """
         params = ()
@@ -176,12 +176,33 @@ def edit_info_post(id):
 #-----------------------------------------------------------
 # Book page - Book a studio for a timeslot 
 #-----------------------------------------------------------
-@app.get("/book")
-@login_required
-def show_book():
-    #form so will need a post route too. select name, id from studios
-        return render_template("pages/book.jinja")
-   
+# @app.get("/book")
+# @login_required
+# def show_book():
+#      with connect_db() as db:
+#         sql = """
+#             SELECT id, name
+#             FROM studios
+#         """
+#         params = ()
+#         studios = db.execute(sql, params).fetchall()
+        
+#         sql = """
+#             SELECT id, display_name, staff_only
+#             FROM timeslots
+#         """
+#         params = ()
+#         timeslots = db.execute(sql, params).fetchall()
+        
+#         sql = """
+#             SELECT id, username
+#             FROM users
+#         """
+#         params = ()
+#         users = db.execute(sql, params).fetchall()
+
+#         return render_template("pages/book.jinja", studios=studios, timeslots=timeslots, users=users)
+
 #-----------------------------------------------------------
 # Bookings page - Displays the users bookings for the week
 #-----------------------------------------------------------
@@ -194,32 +215,48 @@ def show_bookings():
 #-----------------------------------------------------------
 # Studio page - display requested studio (idk wtf is going on)
 #-----------------------------------------------------------
-# @app.get("/studio/<int:id>")
-# def get():
-#     with connect_db() as client:
-#         # Get the workout details from the DB
-#         sql = "SELECT id, name FROM studios WHERE id=?"
-#         params = [id]
-#         result = client.execute(sql, params)
+@app.get("/studio/<int:id>")
+def get(id):
+    with connect_db() as db:
+        # Get the studio details from the DB
+        sql = "SELECT id, name FROM studios WHERE id=?"
+        params = (id,)
+        studio = db.execute(sql, params).fetchone()
+            
+        # Get the studio details from the DB
+        sql = "SELECT id, display_name FROM timeslots"
+        params = ()
+        slots = db.execute(sql, params).fetchall()
         
-#         # Did we get a result?
-#         if result.rows:
-#             # yes, so show it on the page
-#             studio = result.rows[0]
+        # List of days
+        days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
             
-#             user_id = session["user"]["id"]
+        user_id = session["user"]["id"]
+        
+        # Get the workout details from the DB
+        sql = """
+            SELECT 
+                bookings.studio_booked, 
+                bookings.day_booked, 
+                bookings.time_booked,
+                users.username
+                
+            FROM bookings 
+            JOIN users ON users.id = bookings.user_booked
             
-#             # Get the workout details from the DB
-#             sql = "SELECT studio_booked, day_booked, time_booked FROM sessions WHERE studio_booked=? WHERE user_booked=? ORDER BY date DESC"
-#             params = [id, user_id]
-#             result = client.execute(sql, params)
-#             sessions = result.rows
+            WHERE bookings.studio_booked=?
+        """
+        params = (id,)
+        bookings = db.execute(sql, params).fetchall()
+        
+        
+        print("-------------------------------")
+        print(studio)
+        print(slots)
+        print(days)
+        print(bookings)
 
-#             return render_template("pages/workout.jinja", studio=studio, sessions=sessions)
-
-#         else:
-#             # No, so show error
-#             return not_found_error() 
+        return render_template("pages/studio.jinja", studio=studio, slots=slots, days=days, bookings=bookings)
     
 #-----------------------------------------------------------
 # Logout - clear the session
