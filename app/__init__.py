@@ -224,14 +224,12 @@ def get(id):
         studio = db.execute(sql, params).fetchone()
             
         # Get the studio details from the DB
-        sql = "SELECT id, display_name FROM timeslots"
+        sql = "SELECT id, display_name, staff_only FROM timeslots"
         params = ()
         slots = db.execute(sql, params).fetchall()
         
         # List of days
         days = ["Mon", "Tue", "Wed", "Thu", "Fri"]
-            
-        user_id = session["user"]["id"]
         
         # Get the workout details from the DB
         sql = """

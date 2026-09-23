@@ -93,3 +93,26 @@ main > h2 {
     }
 }
 
+
+/* Week cal ---------------------------------------------------- */
+
+#week {
+    border-collapse: collapse;
+    th, td {
+        padding: 0.5em 1em;
+        border: 1px solid black;
+    }
+
+    tbody {
+        tr {
+            th {
+                text-align: left;
+            }
+
+            td.booked {
+                background-color: #ccc;
+            }
+        }
+    }
+  }
+

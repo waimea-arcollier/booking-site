@@ -9,23 +9,49 @@
 
     <h2>{{studio.name}}</h2>
 
-    <section id="help">
+    <section id="table">
 
-        {% if logged_in %}
+        <table id="week">
+            <caption>Book a slot</caption>
+            <thead>
+                <th></th>
+                {%for day in days%}
+                    <th>{{day}}</th>
+                {%endfor%}
+            </thead>
+            <tbody>
+                {%for slot in slots%}
+                    <tr class="slot-{{ slot.id }}">
+                        <th>{{slot.display_name}}</th>
+                        {%for day in days%}
 
-            <p>havent built this yet lol ur logged in tho</p>
+                            {% set ns = namespace(status = "Available") %}
 
-            {% if user.staff %}
-                <p>u r techer</p>    
-            {% endif %}
-            
-        {% else %}
+                            {%for booking in bookings%}
 
-            <p>u r not logged in</p>
-            
-            <a href="/login">Log in?</a>
+                                {%if booking.time_booked == slot.id and booking.day_booked == day%}
+                                    {% set ns.status = "Booked" %}
+                                {%endif%}
 
-        {% endif %}
+                            {%endfor%}
+
+                            {% if not session.user.staff and slot.staff_only %}
+                                {% set ns.status = "" %}
+                            {% endif %}
+
+                            {% if slot.id == 9 and day == "Fri" %}
+                                {% set ns.status = "NO BOOKINGS" %}
+                            {% endif %}
+
+                            <td class="{{ ns.status | lower }}">
+                                {{ ns.status }}
+                            </td>
+                        {%endfor%}
+                    </tr>
+                {%endfor%}
+            </tbody>
+ 
+        </table>
 
     </section>
 
