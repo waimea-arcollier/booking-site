@@ -35,14 +35,25 @@
 
                             {%endfor%}
 
-                            {% if not session.user.staff and slot.staff_only %}
+                            {%if session.logged_in%}
+                                {% if not session.user.staff and slot.staff_only %}
+                                    {% set ns.status = "" %}
+                                {% endif %}
+                            {%else%}
+                                {% if slot.staff_only %}
                                 {% set ns.status = "" %}
-                            {% endif %}
+                                {% endif %} 
+                            {% endif %} 
 
-                            {% if slot.id == 9 and day == "Fri" %}
-                                {% set ns.status = "NO BOOKINGS" %}
-                            {% endif %}
+                                {% if slot.id == 9 and day == "Fri" %}
+                                    {% set ns.status = "NO BOOKINGS" %}
+                                {% endif %}
 
+                                {% if slot.id == 7 and day == "Wed" %}
+                                    {% set ns.status = "M BLOCK CLOSED" %}
+                                {% endif %}
+
+                            
                             <td class="{{ ns.status | lower }}">
                                 {{ ns.status }}
                             </td>

@@ -209,8 +209,13 @@ def edit_info_post(id):
 @app.get("/bookings")
 @login_required
 def show_bookings():
-    #something like select studio_booked, day_booked, time,booked where user.id = user_booked ??
-        return render_template("pages/bookings.jinja")
+    id = session["user"]["id"]
+    with connect_db() as db:
+        # Get the studio details from the DB
+        sql = "SELECT id, studio_booked, day_booked, time_booked FROM bookings WHERE user_booked=?"
+        params = (id,)
+        bookings = db.execute(sql, params).fetchone()
+        return render_template("pages/bookings.jinja", bookings=bookings)
        
 #-----------------------------------------------------------
 # Studio page - display requested studio (idk wtf is going on)
