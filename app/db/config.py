@@ -25,14 +25,14 @@ class UsersTable:
             id      INTEGER PRIMARY KEY AUTOINCREMENT,
             username   TEXT NOT NULL,
             email   TEXT NOT NULL   ,
-            password  TEXT NOT NULL,
-            staff BOOLEAN NOT NULL
+            pass_hash  TEXT NOT NULL,
+            staff INTEGER NOT NULL
         )
     """
     SEED_DATA = """
     INSERT INTO users (username, email, pass_hash, staff)
     VALUES
-        ("test", "test.school.nz", ""scrypt:32768:8:1$n7eJTucLbaGmUpAM$c1776374a8d456a6eaf61bccc08db5e1fcc4ff3b3983d364c45ab13074255eeae0a393afb11f99a9fe63fb1d980992ace17a72ba70324523b11e92e36cbe4252"", false)
+        ("test", "test@school.nz", "scrypt:32768:8:1$n7eJTucLbaGmUpAM$c1776374a8d456a6eaf61bccc08db5e1fcc4ff3b3983d364c45ab13074255eeae0a393afb11f99a9fe63fb1d980992ace17a72ba70324523b11e92e36cbe4252", 0)
     """
 
 class StudiosTable:
@@ -94,7 +94,7 @@ class BookingsTable:
             id      INTEGER PRIMARY KEY AUTOINCREMENT,
             studio_booked   INTEGER,
             user_booked   INTEGER,
-            admin_booked, BOOLEAN
+            admin_booked BOOLEAN,
             day_booked  TEXT NOT NULL,
             time_booked  INTEGER 
         )
@@ -102,9 +102,9 @@ class BookingsTable:
     SEED_DATA = """
     INSERT INTO bookings (studio_booked, user_booked, admin_booked, day_booked, time_booked)
     VALUES
-        (1, 1, 1, "Mon", 4)
-        (2, 2, 0, "Wed", 4)
-        (4, 2, 0, "Thu", 4)
+        (1, 1, 1, "Mon", 4),
+        (2, 2, 0, "Wed", 4),
+        (4, 2, 0, "Thu", 4),
         (3, 2, 0, "Tue", 4)
     """
 # Add more table classes here...
