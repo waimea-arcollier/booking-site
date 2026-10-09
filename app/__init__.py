@@ -211,10 +211,21 @@ def edit_info_post(id):
 def show_bookings():
     id = session["user"]["id"]
     with connect_db() as db:
-        # Get the studio details from the DB
-        sql = "SELECT id, studio_booked, day_booked, time_booked FROM bookings WHERE user_booked=?"
+        sql = """SELECT 
+                    bookings.studio_booked, 
+                    bookings.day_booked, 
+                    bookings.time_booked
+
+                FROM bookings
+                LEFT JOIN studios ON studios.id = bookings.studio_booked
+                LEFT JOIN timeslots ON timeslots.id = bookings.time_booked
+
+                WHERE user_booked=?
+                """
         params = (id,)
-        bookings = db.execute(sql, params).fetchone()
+        bookings = db.execute(sql, params).fetchall()
+        print("============================================")
+        print(bookings)
         return render_template("pages/bookings.jinja", bookings=bookings)
        
 #-----------------------------------------------------------
@@ -241,8 +252,7 @@ def get(id):
             SELECT 
                 bookings.studio_booked, 
                 bookings.day_booked, 
-                bookings.time_booked,
-                users.username
+                bookings.time_booked
                 
             FROM bookings 
             JOIN users ON users.id = bookings.user_booked
@@ -251,13 +261,6 @@ def get(id):
         """
         params = (id,)
         bookings = db.execute(sql, params).fetchall()
-        
-        
-        print("-------------------------------")
-        print(studio)
-        print(slots)
-        print(days)
-        print(bookings)
 
         return render_template("pages/studio.jinja", studio=studio, slots=slots, days=days, bookings=bookings)
     

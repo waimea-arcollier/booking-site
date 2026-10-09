@@ -66,5 +66,9 @@
 
     </section>
 
+    {%if not session.logged_in%}
+        <a href="/login">Log in to book a slot</a>
+    {%endif%}
+
 {% endblock %}
 
