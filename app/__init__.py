@@ -214,13 +214,15 @@ def show_bookings():
         sql = """SELECT 
                     bookings.studio_booked, 
                     bookings.day_booked, 
-                    bookings.time_booked
+                    bookings.time_booked,
+                    studios.name,
+                    timeslots.display_name
 
-                FROM bookings
-                LEFT JOIN studios ON studios.id = bookings.studio_booked
-                LEFT JOIN timeslots ON timeslots.id = bookings.time_booked
+                FROM bookings 
+                JOIN studios ON studios.id = bookings.studio_booked
+                JOIN timeslots ON timeslots.id = bookings.time_booked
 
-                WHERE user_booked=?
+                WHERE bookings.user_booked=?
                 """
         params = (id,)
         bookings = db.execute(sql, params).fetchall()
@@ -260,7 +262,7 @@ def get(id):
             WHERE bookings.studio_booked=?
         """
         params = (id,)
-        bookings = db.execute(sql, params).fetchall()
+        bookings = db.execute(sql, params).fetchall()   
 
         return render_template("pages/studio.jinja", studio=studio, slots=slots, days=days, bookings=bookings)
     
