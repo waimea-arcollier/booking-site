@@ -107,10 +107,33 @@ main > h2 {
         tr {
             th {
                 text-align: left;
+                background-color: #f0f0f0;
+            }
+
+            th.slot-2 {
+                text-align: left;
+                background-color: #ccc;
+            }
+
+
+            td{
+                background-color: #ccc;
             }
 
             td.booked {
-                background-color: #ccc;
+                background-color: #727272;
+            }
+
+            td.m {
+                background-color: #727272;
+            }
+
+            td.no {
+                background-color: #727272;
+            }
+
+            td.available {
+                background-color: #ffffff;
             }
         }
     }

@@ -55,7 +55,20 @@
 
                             
                             <td class="{{ ns.status | lower }}">
+                                {% if ns.status == "Available" %}
+                                    <form action="/booking" method="POST">
+                                        <input type="hidden" name="studio" value="{{ studio.id }}">
+                                        <input type="hidden" name="day"    value="{{ day }}">
+                                        <input type="hidden" name="slot"   value="{{ slot.id }}">
+                                        <button>
+                                {% endif %}
+
                                 {{ ns.status }}
+                                
+                                {% if ns.status == "Available" %}
+                                        </button>
+                                {% endif %}
+
                             </td>
                         {%endfor%}
                     </tr>

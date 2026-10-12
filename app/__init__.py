@@ -34,14 +34,18 @@ def show_studios():
         """
         params = ()
         studios = db.execute(sql, params).fetchall()
-
+        
         flash("Test message")
-        flash("Test SUCCESS message", "success")
-        flash("Test INFO message", "info")
-        flash("Test WARNING message", "warning")
-        flash("Test ERROR message", "error")
 
-        return render_template("pages/home.jinja", studios=studios)
+        time = timedelta()
+        weekday = date.today().isoweekday()
+        
+        
+        print("============================================")
+        print(time)
+        print(weekday)
+
+        return render_template("pages/home.jinja", studios=studios, time=time, weekday = weekday)
 
 #-----------------------------------------------------------
 # Login page - Sign the user in
@@ -174,36 +178,6 @@ def edit_info_post(id):
         return redirect("/account")
 
 #-----------------------------------------------------------
-# Book page - Book a studio for a timeslot 
-#-----------------------------------------------------------
-# @app.get("/book")
-# @login_required
-# def show_book():
-#      with connect_db() as db:
-#         sql = """
-#             SELECT id, name
-#             FROM studios
-#         """
-#         params = ()
-#         studios = db.execute(sql, params).fetchall()
-        
-#         sql = """
-#             SELECT id, display_name, staff_only
-#             FROM timeslots
-#         """
-#         params = ()
-#         timeslots = db.execute(sql, params).fetchall()
-        
-#         sql = """
-#             SELECT id, username
-#             FROM users
-#         """
-#         params = ()
-#         users = db.execute(sql, params).fetchall()
-
-#         return render_template("pages/book.jinja", studios=studios, timeslots=timeslots, users=users)
-
-#-----------------------------------------------------------
 # Bookings page - Displays the users bookings for the week
 #-----------------------------------------------------------
 @app.get("/bookings")
@@ -266,6 +240,111 @@ def get(id):
 
         return render_template("pages/studio.jinja", studio=studio, slots=slots, days=days, bookings=bookings)
     
+#-----------------------------------------------------------
+# Make booking
+#-----------------------------------------------------------
+@app.post("/booking")
+def booking_new():
+    # Get the data from the form
+    studio = request.form.get('studio', '')
+    day = request.form.get('day', '')
+    slot = request.form.get('slot', '')
+
+    print("============================================")
+    print(studio)
+    print(slot)
+    print(day)
+    
+    with connect_db() as db:
+        sql ="""
+            SELECT
+                 name
+            FROM studios
+            
+            WHERE id = ?
+            
+            """
+        params = [studio]
+        studio_name = db.execute(sql, params).fetchone()
+
+    with connect_db() as db:
+        sql =""" 
+            SELECT 
+                timeslots.display_name
+            FROM timeslots
+            
+            WHERE timeslots.id = ?
+            """
+        params = [slot]
+        slot_name = db.execute(sql, params).fetchone()
+        
+    print("============================================")
+    print(studio_name)
+    print(slot_name)
+        
+    return render_template("pages/booking.jinja", studio=studio, day=day, slot=slot, studio_name=studio_name, slot_name=slot_name)
+    
+@app.post("/booking/new")
+def booking_new_post():
+    # Get the data from the form
+    studio = request.form.get('studio', '')
+    day = request.form.get('day', '')
+    slot = request.form.get('slot', '')
+    user = request.form.get('user','')
+    id = session["user"]["id"]
+
+    if user:
+        with connect_db() as client:
+            # Add the thing to the DB
+            sql ="""UPDATE users
+                    SET username = ?, email = ?
+                    WHERE id = ?
+                """
+            params = [studio]
+            client.execute(sql, params)
+        
+
+            session["user"]["email"] = email
+            session["user"]["username"] = username
+            session.modified = True
+            
+            flash("Slot sucessfully", "success")
+            
+            # Go back
+            return redirect("/bookings")
+    else:
+        with connect_db() as db:
+            sql="""
+                SELECT 
+                    id 
+                FROM bookings
+
+                WHERE user_booked = ?
+            """
+            params = [id]
+            user_bookings = db.execute(sql, params).fetchall()
+            user_bookings = len(user_bookings)
+            
+            if user_bookings < 3:
+                with connect_db() as client:
+                    # Add the thing to the DB
+                    sql ="""  
+                            INSERT INTO bookings (studio_booked, user_booked, admin_booked, day_booked, time_booked)
+                            VALUES (?, ?, 0, ?, ?)
+                        """
+                    params = [studio, id, day, slot]
+                    client.execute(sql, params)
+                    
+                    flash("Slot sucessfully booked", "success")
+                    
+                    # Go back
+                    return redirect("/bookings")
+            else:
+                flash("You have reached this weeks booking limit.", "error")
+                return redirect("/")
+                
+
+        
 #-----------------------------------------------------------
 # Logout - clear the session
 #-----------------------------------------------------------

@@ -7,21 +7,32 @@
 
 {% block content %}
 
-    <h2>Time Placeholder</h2>
+    <h2>How to use this site</h2>
 
     <section id="help">
 
         {% if session.logged_in %}
-
-            <p>This is where I will put the help section for logged in users.</p>
+            <h3>Navigation</h3>
+            <p>The bar across the top of the page will navigate you to he different pages. You can click on the studios on the home page to open that studios timetable of bookings for the week. </p>
+            <h3>Making Bookings</h3>
+            <p>Once opening the timetable by cliking the studio you want to book on the home page, you can click on any slot in the timetable to book that timeslot for your selected studio. You have a maximum of three bookings per week.</p>
+            <h3>Editing account</h3>
+            <p>By clicking on the "account settings" tab, you can change your name and email. This is purely for editingmistakes made when signing up, or changing preferred names and emails. Please keep your information appropriate for school as teachers can view this information.</p>
+            <h3>Music Lessons</h3>
+            <p>Music lessons will be booked for you by staff. </p>
 
             {% if session.user.staff %}
-            <p>This is where I will put the help section for admin</p>
+            <h3>Admin info</h3>
+            <p>You are logged in to the admin account. You have the power to remove bookings by clicking on a booked slot, and book your own for any purposes. Please do not edit this accounts information unless you have the authority to.</p>
             {% endif %}
             
         {% else %}
-
-            <p>This is where I will put the help section for logged out users</p>
+            <h3>Logging in</h3>
+            <p>Click the button in the top left to log in using your account information if you have already signed up. If you have not signed up you will not have an account.</p>
+            <h3>Create an account</h3>
+            <p>To create an account, click on the log in button on the top left, then look below the form for the "sign up?" button. When you sign up, it is mandatory that you must use your school email adress. It is reccomended to use your school username and password as well, as there is no way to recover an account. Using your school information will make this process easier.</p>
+            <h3>Booked studios</h3>
+            <p>To view a studios availability, click on the studio you want to view on the home page. This will take you to a timetable showing the availability of the studio for the week. This table is view only for logged out users. If you want to make a booking, you must log in or create an account.</p>
 
         {% endif %}
 

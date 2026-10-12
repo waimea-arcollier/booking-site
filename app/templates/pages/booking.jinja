@@ -1,0 +1,53 @@
+{#=====================================================
+Utterly redundant
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+    <h2>Are you sure you'd like to book this slot?</h2>
+
+    <section id="book">
+
+      <article class="form">
+
+        <form method="post" action="/booking/new">
+        
+            <label>
+              Studio: {{ studio_name.name }}
+              <input type = "hidden" name="studio" value="{{ studio }}">
+            </label>
+
+            {% if session.user.staff %}
+            <label>
+                Who is this booking for?
+                <select name="user">
+                  {% for user in users %}
+                    <option value={{user.id}}>{{user.username}}</option>
+                  {% endfor %}
+                </select>
+            </label>
+            {% endif %}
+
+            <label>
+              Day: {{ day }}
+              <input type="hidden" name="day" value="{{ day }}">
+            </label>
+            
+            <label>
+              Timeslot: {{ slot_name.display_name }}
+              <input type="hidden" name="slot" value="{{ slot }}">
+            </label>
+        
+            <button>Make This Booking</button>
+        </form>
+
+      </article>  
+            
+
+    </section>
+
+{% endblock %} 
+
