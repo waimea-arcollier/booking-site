@@ -1,5 +1,5 @@
 {#=====================================================
-Utterly redundant
+Eh???
 =====================================================#}
 
 {% extends 'pages/_base.jinja' %}
@@ -20,17 +20,6 @@ Utterly redundant
               <input type = "hidden" name="studio" value="{{ studio }}">
             </label>
 
-            {% if session.user.staff %}
-            <label>
-                Who is this booking for?
-                <select name="user">
-                  {% for user in users %}
-                    <option value={{user.id}}>{{user.username}}</option>
-                  {% endfor %}
-                </select>
-            </label>
-            {% endif %}
-
             <label>
               Day: {{ day }}
               <input type="hidden" name="day" value="{{ day }}">
@@ -45,6 +34,8 @@ Utterly redundant
         </form>
 
       </article>  
+
+      <a href="/studio/{{studio}}">Go back</a>
             
 
     </section>

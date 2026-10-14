@@ -32,6 +32,7 @@ class UsersTable:
     SEED_DATA = """
     INSERT INTO users (username, email, pass_hash, staff)
     VALUES
+        ("admin", "music@waimea.nz", "scrypt:32768:8:1$n7eJTucLbaGmUpAM$c1776374a8d456a6eaf61bccc08db5e1fcc4ff3b3983d364c45ab13074255eeae0a393afb11f99a9fe63fb1d980992ace17a72ba70324523b11e92e36cbe4252", 1),
         ("test", "test@school.nz", "scrypt:32768:8:1$n7eJTucLbaGmUpAM$c1776374a8d456a6eaf61bccc08db5e1fcc4ff3b3983d364c45ab13074255eeae0a393afb11f99a9fe63fb1d980992ace17a72ba70324523b11e92e36cbe4252", 0)
     """
 
@@ -96,16 +97,39 @@ class BookingsTable:
             user_booked   INTEGER,
             admin_booked BOOLEAN,
             day_booked  TEXT NOT NULL,
-            time_booked  INTEGER 
+            time_booked  INTEGER, 
+            note TEXT
         )
     """
     SEED_DATA = """
-    INSERT INTO bookings (studio_booked, user_booked, admin_booked, day_booked, time_booked)
+    INSERT INTO bookings (studio_booked, user_booked, day_booked, time_booked, note)
     VALUES
-        (1, 1, 1, "Mon", 4),
-        (2, 2, 0, "Wed", 4),
-        (4, 2, 0, "Thu", 4),
-        (3, 2, 0, "Tue", 4)
+         
+        (1, 1, "Wed", 7, "M BLOCK CLOSED"),
+        (1, 1, "Fri", 9, "NO BOOKINGS"),
+        
+        (2, 1, "Mon", 3, "Piano Lessons"),
+        (2, 1, "Mon", 4, "Piano Lessons"),
+        (2, 1, "Mon", 5, "Piano Lessons"),
+        (2, 1, "Tue", 4, "Cello Lessons"),
+        (2, 1, "Wed", 1, "Flute Lessons"),
+        (2, 1, "Wed", 2, "Flute Lessons"),
+        (2, 1, "Wed", 3, "Flute Lessons"),
+        (2, 1, "Wed", 6, "Violin Lessons"),
+        (2, 1, "Wed", 7, "Violin Lessons ~ M Block Closed"),
+        (2, 1, "Wed", 8, "Violin Lessons"),
+        (2, 1, "Thu", 2, "Piano Lessons"),
+        (2, 1, "Thu", 3, "Piano Lessons"),
+        (2, 1, "Thu", 4, "Piano Lessons"),
+        (2, 1, "Fri", 9, "NO BOOKINGS"),
+        
+        (3, 1, "Wed", 7, "M BLOCK CLOSED"),
+        (3, 1, "Fri", 9, "NO BOOKINGS"),
+        
+        (4, 1, "Wed", 7, "M BLOCK CLOSED"),
+        (2, 1, "Thu", 9, "THE SAUCE"),
+        (4, 1, "Fri", 9, "NO BOOKINGS")
+        
     """
 # Add more table classes here...
 

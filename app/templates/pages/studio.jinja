@@ -8,11 +8,11 @@
 {% block content %}
 
     <h2>{{studio.name}}</h2>
+    <h3> Click to book a slot </h3>
 
     <section id="table">
 
         <table id="week">
-            <caption>Book a slot</caption>
             <thead>
                 <th></th>
                 {%for day in days%}
@@ -27,35 +27,30 @@
 
                             {% set ns = namespace(status = "Available") %}
 
-                            {%for booking in bookings%}
-
-                                {%if booking.time_booked == slot.id and booking.day_booked == day%}
-                                    {% set ns.status = "Booked" %}
-                                {%endif%}
-
-                            {%endfor%}
-
                             {%if session.logged_in%}
                                 {% if not session.user.staff and slot.staff_only %}
                                     {% set ns.status = "" %}
                                 {% endif %}
                             {%else%}
                                 {% if slot.staff_only %}
-                                {% set ns.status = "" %}
+                                    {% set ns.status = "" %}
                                 {% endif %} 
                             {% endif %} 
 
-                                {% if slot.id == 9 and day == "Fri" %}
-                                    {% set ns.status = "NO BOOKINGS" %}
-                                {% endif %}
+                            {%for booking in bookings%}
 
-                                {% if slot.id == 7 and day == "Wed" %}
-                                    {% set ns.status = "M BLOCK CLOSED" %}
-                                {% endif %}
+                                {%if booking.time_booked == slot.id and booking.day_booked == day%}
+                                    {%if booking.note %}
+                                        {% set ns.status = booking.note %}
+                                    {%else%}
+                                        {% set ns.status = "Booked" %}
+                                    {%endif%}
+                                {%endif%}
 
+                            {%endfor%}
                             
                             <td class="{{ ns.status | lower }}">
-                                {% if ns.status == "Available" %}
+                                {% if ns.status == "Available" and session.logged_in %}
                                     <form action="/booking" method="POST">
                                         <input type="hidden" name="studio" value="{{ studio.id }}">
                                         <input type="hidden" name="day"    value="{{ day }}">
@@ -67,6 +62,7 @@
                                 
                                 {% if ns.status == "Available" %}
                                         </button>
+                                    </form>
                                 {% endif %}
 
                             </td>
