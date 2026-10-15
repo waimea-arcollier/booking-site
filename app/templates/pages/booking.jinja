@@ -29,6 +29,15 @@ Eh???
               Timeslot: {{ slot_name.display_name }}
               <input type="hidden" name="slot" value="{{ slot }}">
             </label>
+
+            {% if session.user.staff%}
+              <label>
+                Title of Booking: 
+                <input name="note">
+              </label>
+            {%else%}
+              <input type="hidden" name="note" value="">
+            {% endif %}
         
             <button>Make This Booking</button>
         </form>

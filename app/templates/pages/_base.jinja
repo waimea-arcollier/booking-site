@@ -37,12 +37,11 @@
                  <a href="/account">Account settings</a>
                  <a href="/bookings">
                     {% if session.user.staff %}
-                    All Bookings
+                    Admin Bookings
                     {% else %}
                     My Bookings
                     {% endif %} 
                  </a>
-                 <a href="/book">Book a studio</a>
             {% endif %} 
             <a href="/help">Help</a>
         </nav>

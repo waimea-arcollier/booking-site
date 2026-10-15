@@ -23,6 +23,9 @@
 
                     <p>{{booking.display_name}}</p>
                     <p>{{booking.day_booked}}</p>
+                    {%if booking.note%}
+                        <p>Title: {{booking.note}}</p>
+                    {% endif %}
 
                     <a href="/delete/booking/{{booking.id}}">Cancel Booking</a>
 

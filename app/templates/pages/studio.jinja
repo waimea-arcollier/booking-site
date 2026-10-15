@@ -8,7 +8,9 @@
 {% block content %}
 
     <h2>{{studio.name}}</h2>
+    {%if session.logged_in%}
     <h3> Click to book a slot </h3>
+    {%endif%}
 
     <section id="table">
 
@@ -44,6 +46,7 @@
                                         {% set ns.status = booking.note %}
                                     {%else%}
                                         {% set ns.status = "Booked" %}
+                                           
                                     {%endif%}
                                 {%endif%}
 

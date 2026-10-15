@@ -95,7 +95,6 @@ class BookingsTable:
             id      INTEGER PRIMARY KEY AUTOINCREMENT,
             studio_booked   INTEGER,
             user_booked   INTEGER,
-            admin_booked BOOLEAN,
             day_booked  TEXT NOT NULL,
             time_booked  INTEGER, 
             note TEXT

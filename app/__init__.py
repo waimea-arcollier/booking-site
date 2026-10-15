@@ -191,6 +191,7 @@ def show_bookings():
                     bookings.studio_booked, 
                     bookings.day_booked, 
                     bookings.time_booked,
+                    bookings.note,
                     studios.name,
                     timeslots.display_name
 
@@ -199,6 +200,7 @@ def show_bookings():
                 JOIN timeslots ON timeslots.id = bookings.time_booked
 
                 WHERE bookings.user_booked=?
+                ORDER by bookings.time_booked asc
                 """
         params = (id,)
         bookings = db.execute(sql, params).fetchall()
@@ -231,6 +233,7 @@ def get(id):
                 bookings.studio_booked, 
                 bookings.day_booked, 
                 bookings.time_booked,
+                bookings.user_booked,
                 bookings.note
                 
             FROM bookings 
@@ -295,7 +298,9 @@ def booking_new_post():
     studio = request.form.get('studio', '')
     day = request.form.get('day', '')
     slot = request.form.get('slot', '')
+    note = request.form.get('note', '')
     id = session["user"]["id"]
+    staff = session["user"]["staff"]
     
     with connect_db() as db:
         sql="""
@@ -309,14 +314,14 @@ def booking_new_post():
         user_bookings = db.execute(sql, params).fetchall()
         user_bookings = len(user_bookings)
         
-        if user_bookings < 3:
+        if (user_bookings < 3) or (staff):
             with connect_db() as client:
                 # Add the thing to the DB
                 sql ="""  
-                        INSERT INTO bookings (studio_booked, user_booked, day_booked, time_booked)
-                        VALUES (?, ?, ?, ?)
+                        INSERT INTO bookings (studio_booked, user_booked, day_booked, time_booked, note)
+                        VALUES (?, ?, ?, ?, ?)
                     """
-                params = [studio, id, day, slot]
+                params = [studio, id, day, slot, note]
                 client.execute(sql, params)
                 
                 flash("Slot sucessfully booked", "success")
@@ -328,7 +333,7 @@ def booking_new_post():
             return redirect("/")
           
 #-----------------------------------------------------------
-# Delete account
+# Delete booking
 #-----------------------------------------------------------
 @app.get("/delete/booking/<int:id>")
 @login_required
