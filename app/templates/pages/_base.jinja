@@ -43,6 +43,11 @@
                     {% endif %} 
                  </a>
             {% endif %} 
+            {% if session.logged_in %}
+                {% if session.user.staff %}
+                    <a href="/students">Student Bookings</a>
+                {% endif %} 
+            {% endif %} 
             <a href="/help">Help</a>
         </nav>
     </header>
@@ -51,7 +56,7 @@
     {% include "partials/messages.jinja" %}
 
     <main>
-
+        <h2>{{ time | local | format("ddd") }} <span id="time">Time...</span></h2>
         {% block content %}
         {% endblock %}
 
@@ -60,4 +65,20 @@
 </body>
 
 </html>
+
+<script>
+    function updateTime() {
+        const clockElement = document.getElementById('time')
+        const now = new Date()
+        
+        // Format the time to your local timezone format (e.g., 11:52:00 AM)
+        clockElement.textContent = now.toLocaleTimeString()
+    }
+    
+    // Run the function immediately so the clock isn't blank on load
+    updateTime()
+    
+    // Update the clock every 1 second (1000 milliseconds)
+    setInterval(updateTime, 1000)
+</script>
 

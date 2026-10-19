@@ -7,7 +7,6 @@
 
 {% block content %}
 
-    <h2>Time Placeholder</h2>
 
     <section id="settings">
 
@@ -34,12 +33,12 @@
 
             </article>
             {% if session.user.staff %}
-            <p>Disclaimer for editing the info for staff since it's a shared account smth like "you are using a shared admin account, please ask before changing the accounts information"</p>
+            <p>Admin account may not be deleted and should only be edited when necessary.</p>
             {% endif %}
 
             <a href="/logout">Logout</a>
             {%if not session.user.staff%}
-            <a href="/temp">Delete account</a>
+            <a href="/delete/account" onclick="return confirm('Are you sure you want to delete your account, {{session.user.username}}?')" >Delete account</a>
             {%endif%}
     </section>
 

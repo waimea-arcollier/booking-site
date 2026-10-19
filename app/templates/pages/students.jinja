@@ -1,0 +1,48 @@
+{#=====================================================
+  Home page
+=====================================================#}
+
+{% extends 'pages/_base.jinja' %}
+
+
+{% block content %}
+
+    {%if session.logged_in%}
+        {% if session.user.staff %}
+                <button class = "nuke_em"> <a href="/delete/all" onclick="return confirm('Are you sure?')" class = "delete_all"> Clear All Student Bookings </a> </button>
+        {% endif %}
+    {% endif %}
+
+    
+    {%if bookings%}
+
+    <section id="studios">
+
+        {% for booking in bookings %}
+
+            <div onclick="location.href='/studio/{{booking.studio_booked}}';" style="cursor: pointer;" class="studio">
+
+                <header>
+                    <h3>{{ booking.name }}</h3>
+                </header>
+
+                <p>{{booking.display_name}}</p>
+                <p>{{booking.day_booked}}</p>
+                <p>Booked by: {{booking.email}}</p>
+              
+
+                <a href="/delete/booking/{{booking.id}}" onclick="return confirm('Are you sure you want to delete {{ booking.username }}\'s booking?')" >Cancel Booking</a>
+
+            </div>
+
+        {% endfor %}
+
+    </section>
+
+    {% else %}
+
+      <p>No bookings yet!</p>
+
+    {% endif %}
+{% endblock %}
+

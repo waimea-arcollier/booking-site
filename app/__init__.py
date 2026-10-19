@@ -10,13 +10,16 @@ from os import getenv
 from io import BytesIO
 import html
 from app.helpers import *
-from datetime import date, timedelta
+from datetime import datetime
 
 
 # Create the app
 app = Flask(__name__)
 logged_in = False
 
+
+time = datetime.now()
+weekday = datetime.today().isoweekday()
 
 #===========================================================
 # App Routes Handlers
@@ -36,16 +39,13 @@ def show_studios():
         studios = db.execute(sql, params).fetchall()
         
         flash("Test message")
-
-        time = timedelta()
-        weekday = date.today().isoweekday()
         
         
         print("============================================")
         print(time)
         print(weekday)
 
-        return render_template("pages/home.jinja", studios=studios, time=time, weekday = weekday)
+        return render_template("pages/home.jinja", studios=studios)
 
 #-----------------------------------------------------------
 # Login page - Sign the user in
@@ -230,6 +230,7 @@ def get(id):
         # Get the workout details from the DB
         sql = """
             SELECT 
+                bookings.id,
                 bookings.studio_booked, 
                 bookings.day_booked, 
                 bookings.time_booked,
@@ -246,6 +247,41 @@ def get(id):
 
         return render_template("pages/studio.jinja", studio=studio, slots=slots, days=days, bookings=bookings)
     
+    
+#-----------------------------------------------------------
+# Show all bookings made by students
+#-----------------------------------------------------------  
+@app.get("/students")
+@login_required
+def student_bookings():
+    staff = session["user"]["staff"]
+    with connect_db() as db:
+        if staff:
+            sql = """SELECT 
+                    bookings.id,
+                    bookings.studio_booked, 
+                    bookings.day_booked, 
+                    bookings.time_booked,
+                    bookings.user_booked,
+                    bookings.note,
+                    studios.name,
+                    timeslots.display_name,
+                    users.email
+
+                FROM bookings 
+                JOIN studios ON studios.id = bookings.studio_booked
+                JOIN timeslots ON timeslots.id = bookings.time_booked
+                JOIN users ON users.id = bookings.user_booked
+
+                WHERE bookings.user_booked > 1
+                ORDER by bookings.time_booked asc
+                """
+            bookings = db.execute(sql).fetchall()
+            return render_template("pages/students.jinja", bookings=bookings)
+        
+        else: 
+            flash(f"Hey! you're not meant to be here!", "error")
+            return redirect("/")
 #-----------------------------------------------------------
 # Make booking
 #-----------------------------------------------------------
@@ -337,7 +373,7 @@ def booking_new_post():
 #-----------------------------------------------------------
 @app.get("/delete/booking/<int:id>")
 @login_required
-def delete_account(id):
+def delete_booking(id):
     with connect_db() as db:
         sql = """
             SELECT 
@@ -362,6 +398,24 @@ def delete_account(id):
         db.execute(sql, params)
         flash(f"Booking for {booking["display_name"]} on {booking["day_booked"]} for {booking["name"]} cancelled sucessfully", "success")
         return redirect("/bookings")
+    
+#-----------------------------------------------------------
+# Clear Bookings for the week
+#-----------------------------------------------------------
+@app.get("/delete/all")
+@login_required
+def clear_all():
+    staff = session["user"]["staff"]
+    with connect_db() as db:
+        if staff:
+            sql = "DELETE FROM bookings WHERE user_booked > 1"
+            db.execute(sql)
+            flash(f"Bookings cleared sucessfully", "success")
+            return redirect("/bookings")
+        else: 
+            flash(f"Hey! you're not meant to be here!", "error")
+            return redirect("/")
+        
 #-----------------------------------------------------------
 # Logout - clear the session
 #-----------------------------------------------------------
@@ -375,12 +429,8 @@ def logout_user():
 #-----------------------------------------------------------
 # Delete account
 #-----------------------------------------------------------
-@app.get("/temp")
-@login_required
-def temp():
-        return render_template("pages/temp.jinja")
-    
-@app.get("/delete")
+
+@app.get("/delete/account")
 @login_required
 def delete_user():
     id = session["user"]["id"]

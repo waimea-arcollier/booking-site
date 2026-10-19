@@ -7,7 +7,12 @@
 
 {% block content %}
 
-    <h2>Time Placeholder</h2>
+
+    {%if session.logged_in%}
+        {% if session.user.staff %}
+                <button class = "nuke_em"> <a href="/delete/all" onclick="return confirm('Are you sure?')" class = "delete_all"> Clear All Student Bookings </a> </button>
+        {% endif %}
+    {% endif %}
 
     <section id="studios">
 

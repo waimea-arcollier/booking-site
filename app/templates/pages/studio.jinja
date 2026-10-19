@@ -28,6 +28,7 @@
                         {%for day in days%}
 
                             {% set ns = namespace(status = "Available") %}
+                            {%set booking_id = ""%}
 
                             {%if session.logged_in%}
                                 {% if not session.user.staff and slot.staff_only %}
@@ -45,8 +46,8 @@
                                     {%if booking.note %}
                                         {% set ns.status = booking.note %}
                                     {%else%}
-                                        {% set ns.status = "Booked" %}
-                                           
+                                        {% set ns.status = "Booked" %}   
+                                        {% set booking_id = booking.id %}
                                     {%endif%}
                                 {%endif%}
 
@@ -66,6 +67,10 @@
                                 {% if ns.status == "Available" %}
                                         </button>
                                     </form>
+                                {% endif %}
+
+                                {% if ns.status == "Booked" and session.logged_in and session.user.staff %}
+                                        <a href="/delete/booking/{{ booking_id }}" onclick="return confirm('Are you sure?')">Cancel Booking</a>
                                 {% endif %}
 
                             </td>
