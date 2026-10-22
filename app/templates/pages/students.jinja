@@ -31,7 +31,7 @@
                 <p>Booked by: {{booking.email}}</p>
               
 
-                <a href="/delete/booking/{{booking.id}}" onclick="return confirm('Are you sure you want to delete {{ booking.username }}\'s booking?')" >Cancel Booking</a>
+                <a href="/delete/booking/{{booking.id}}" onclick="return confirm('Are you sure you want to delete {{ booking.username }}\'s booking for {{booking.name}} on {{booking.day_booked}} for {{booking.display_name}}?')" >Cancel Booking</a>
 
             </div>
 
@@ -40,7 +40,7 @@
     </section>
 
     {% else %}
-
+ 
       <p>No bookings yet!</p>
 
     {% endif %}
