@@ -277,6 +277,9 @@ def student_bookings():
                 ORDER by bookings.time_booked asc
                 """
             bookings = db.execute(sql).fetchall()
+            
+            print("============================================")
+            print (bookings)
             return render_template("pages/students.jinja", bookings=bookings)
         
         else: 
