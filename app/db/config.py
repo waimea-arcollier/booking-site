@@ -49,12 +49,12 @@ class StudiosTable:
     """
 
     SEED_DATA = """
-        INSERT INTO studios (name)
+        INSERT INTO studios (name, image_file)
         VALUES
-            ("Studio 3"),
-            ("Studio 4"),
-            ("Studio 5"),
-            ("Band Room")
+            ("Studio 3", "studio-3.jpg"),
+            ("Studio 4", "studio-4.jpg"),
+            ("Studio 5", "studio-5.jpg"),
+            ("Band Room", "band-room.jpg")
     """
 
 class TimeslotsTable:

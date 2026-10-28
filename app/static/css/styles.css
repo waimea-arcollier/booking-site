@@ -6,12 +6,12 @@
 :root {
     --text-col:         #111;
 
-    --back-col:         #eee;
+    --back-col:         #fff9f3;
     --back-col-panel:   #fff;
 
     --border-col:       #355;
 
-    --accent-col:       #e43;
+    --accent-col:       rgb(248, 189, 26);
 }
 
 
@@ -42,18 +42,41 @@ main {
 body > header {
     display: flex;
     gap: 1rem;
-    align-items: center;
+    align-items: center - 200px;
     justify-content: space-between;
     padding: 1rem;
+    
 
     nav {
         display: flex;
-        gap: 1rem;
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align children to the left */
+        width: 200px;
+        height: 100%;
+        background-color: #105a10f1;
+        padding: 1rem;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        position: fixed; /* Make it stick, even on scroll */
+        overflow: auto;
 
         a {
             color: var(--accent-col);
+            display: block;
+            width: 100%;
+            padding: 10px 15px;
+            text-decoration: none;
+            text-align: left;
         }
+
+        a.active {
+            color:            #fff6ee;
+            background-color: #081d01;
+        }
+        
     }
+
 }
 
 
@@ -71,8 +94,9 @@ main > h2 {
 #studios {
     display: grid;
     gap: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+    grid-template-columns: repeat(2, minmax(min(15rem, 100%), 1fr));
     align-items: start;
+    margin-left:-200px;
 
     .studio {
         padding: 1rem;

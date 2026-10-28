@@ -32,7 +32,7 @@ weekday = datetime.today().isoweekday()
 def show_studios():
     with connect_db() as db:
         sql = """
-            SELECT name, id
+            SELECT *
             FROM studios
         """
         params = ()

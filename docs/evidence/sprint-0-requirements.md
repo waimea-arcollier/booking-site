@@ -2,7 +2,7 @@
 
 ## Identified Problem or Need
 
-Currently the system for booking the studios in m block is a paper sign up sheet. When people make errors or want to change their bookings, it results in a messy page, with crossed out and erased names that make the experience difficult for all.
+Currently the system for booking the studios in m block is a paper sign up sheet. When people make errors or want to change their bookings, it results in a messy page, with crossed out and erased names that make the experience difficult for all. 
 
 
 ## End-User Requirements
@@ -19,7 +19,7 @@ display images of each studio
 
 ## Proposed Solution
 
-I intend to create a web app to solve this problem, which will have a user friendly ui, and a clear system that allows for booking studios easily and efficiently. The site will have a form to book rooms and displays of what rooms are currently in use. Teachers will be able to remove student bookings and view what students made each booking.
+I intend to create a web app to solve this problem, which will have a user friendly ui, and a clear system that allows for booking studios easily and efficiently. The site will have a form to book rooms and displays of what rooms are currently in use. Admin will be able to remove student bookings and view what students made each booking. 
 
 
 # Relevant Implications

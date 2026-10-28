@@ -89,10 +89,23 @@ My second end user, a music student, said "On the home page, i think that the st
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I created a boxed grid display for the new version, with four options for their design.
+
+https://design.penpot.app/#/view?file-id=c828d3cf-7d4e-8145-8008-934111a40059&page-id=a1a9e568-e174-80fb-8008-5d1d16285282&section=interactions&index=0&share-id=7caa4534-d91d-42bf-9f79-de77e403c936
+
+### Testing
+
+I sent this ui prototype to my end users for feedback.
+
+My first end user, the staff member, preferred studio 4 option.
+
+My second end user, a music student, preferred studio three, but had studio 4 as a close second favourite.
+
+### Changes / Improvements
+
+I went with the studio 4 option as it displays the image in a much larger area, making it more visible and less cluttered.
 
 https://design.penpot.app/#/view?file-id=3be9e5e1-190f-8090-8008-7e8b1dade9b4&page-id=a1a9e568-e174-80fb-8008-5d1d16285282&section=interactions&index=0&share-id=502b4555-3f5f-807a-8008-8a3b4052c3e3
-
 
 ## Refined UI Prototype
 
@@ -100,17 +113,19 @@ Having established the layout of the UI screens, the prototype was refined visua
 
 This Figma demo shows the UI with refinements applied:
 
-*FIGMA REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+https://design.penpot.app/#/view?file-id=bfddaaba-4180-81d4-8008-db35f5af28c1&page-id=a1a9e568-e174-80fb-8008-5d1d16285282&section=interactions&index=0&share-id=2fff45cf-b464-45a0-b8bd-83b15b2f8d20
 
 ### Testing
 
-Replace this text with notes about what you did to test the UI flow and the outcome of the testing.
+My first end user, the staff member, liked the look of the colours and fonts, but pointed out to me that the labels on the make a booking site were no longer visible.
+
+My second end user, a music student, liked the design, but suggested removing the borders on the images in the studio display.
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+I acted on the changes suggested by my end users.
 
-*FIGMA IMPROVED REFINED PROTOTYPE - PLACE THE FIGMA EMBED CODE HERE - MAKE SURE IT IS SET SO THAT EVERYONE CAN ACCESS IT*
+https://design.penpot.app/#/view?file-id=61fd668e-ca9f-8100-8008-db395d6bedd9&page-id=a1a9e568-e174-80fb-8008-5d1d16285282&section=interactions&index=0&share-id=eec73663-d81f-4a75-bf37-1e40c5536ab1
 
 
 ## Sprint Review
