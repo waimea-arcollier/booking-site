@@ -16,7 +16,7 @@
 
         <table id="week">
             <thead>
-                <th></th>
+                <th class="blank"></th>
                 {%for day in days%}
                     <th>{{day}}</th>
                 {%endfor%}
@@ -59,7 +59,7 @@
                                         <input type="hidden" name="studio" value="{{ studio.id }}">
                                         <input type="hidden" name="day"    value="{{ day }}">
                                         <input type="hidden" name="slot"   value="{{ slot.id }}">
-                                        <button>
+                                        <button id="available-button">
                                 {% endif %}
 
                                 {{ ns.status }}
@@ -70,10 +70,10 @@
                                 {% endif %}
 
                                 {% if ns.status == "Booked" and session.logged_in and session.user.staff %}
-                                        <a href="/delete/booking/{{ booking_id }}" onclick="return confirm('Are you sure?')">Cancel Booking</a>
+                                        <a id="cancel-on-studio" href="/delete/booking/{{ booking_id }}" onclick="return confirm('Are you sure?')">Cancel</a>
                                 {% endif %}
 
-                            </td>
+                            </td>   
                         {%endfor%}
                     </tr>
                 {%endfor%}

@@ -193,6 +193,7 @@ def show_bookings():
                     bookings.time_booked,
                     bookings.note,
                     studios.name,
+                    studios.image_file,
                     timeslots.display_name
 
                 FROM bookings 
@@ -205,7 +206,6 @@ def show_bookings():
         params = (id,)
         bookings = db.execute(sql, params).fetchall()
         print("============================================")
-        print(bookings)
         return render_template("pages/bookings.jinja", bookings=bookings)
        
 #-----------------------------------------------------------

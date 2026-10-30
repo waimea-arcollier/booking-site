@@ -9,7 +9,7 @@
     --back-col:         #fff9f3;
     --back-col-panel:   #fff;
 
-    --border-col:       #355;
+    --border-col:       #081d01;
 
     --accent-col:       rgb(248, 189, 26);
 }
@@ -53,7 +53,7 @@ body > header {
         align-items: flex-start; /* Align children to the left */
         width: 200px;
         height: 100%;
-        background-color: #105a10f1;
+        background-color: #105a10de;
         padding: 1rem;
         position: absolute;
         bottom: 0;
@@ -155,75 +155,110 @@ main > h2 {
     text-align: center;
 }
 
-/* Week cal ---------------------------------------------------- */
-#table{
-    align-self: center;
-    margin-left: -200px;
+div.booking{
+    display: inline-block;
 }
+
+/* Week cal ---------------------------------------------------- */
 #week {
     border-collapse: collapse;
     width: 60rem;
     height: auto;
+    align-self: center;
+    margin-left: -118px;
     th, td {
         padding: 0.5em 1em;
-        border: 1px solid black;
+        border: 2.5px solid var(--border-col);
         text-align: center;
         max-width: 2px;
     }
-
+    thead{
+        th {
+            text-align: center;
+            background-color: #e7b62e;
+            color: var(--border-col);
+        }
+        
+        th.blank{
+            border: 0px;
+            background-color: #fff9f3;
+        }
+    }
     tbody {
         tr {
             th {
                 text-align: left;
-                background-color: #f0f0f0;
+                background-color: #e7b62e;
+                color: var(--border-col);
             }
-
-            th.slot-2 {
-                text-align: left;
-                background-color: #ccc;
-            }
-
 
             td{
-                background-color: #ccc;
+                background-color: #855b2a;
             }
 
             td.booked {
-                background-color: #727272;
+                background-color: #0e2704;
+                color: #fff9f3;
             }
 
             td.m {
-                background-color: #727272;
+                background-color: #0e2704;
+                color: #fff9f3;
             }
 
             td.no {
-                background-color: #727272;
+                background-color: #0e2704;
+                color: #fff9f3;
             }
 
             td.the {
-                background-color: #727272;
+                background-color: #0e2704;
+                color: #fff9f3;
             }
 
             td.piano {
-                background-color: #727272;
+                background-color: #0e2704;
+                color: #fff9f3;
             }
 
             td.violin {
-                background-color: #727272;
+                background-color: #0e2704;
+                color: #fff9f3;
             }
 
             td.flute {
-                background-color: #727272;
+                background-color: #0e2704;
+                color: #fff9f3;
             }
 
             td.cello {
-                background-color: #727272;
+                background-color: #0e2704;
+                color: #fff9f3;
             }
 
             td.available {
-                background-color: #ffffff;
+                background-color: #fff9f3;
             }
         }
     }
   }
 
+#available-button {
+    color: var(--border-col);
+    background-color: #fff9f3;
+    padding: 10px;
+}
+
+#available-button:hover {
+    background-color: #f1c54a;
+}
+
+#cancel-on-studio {
+    color: #f1c54a;
+}
+
+#booking-image {
+    width: 30%;
+    height: auto;
+    display: inline-block;
+}
