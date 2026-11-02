@@ -17,18 +17,24 @@
 
                     <img id="booking-image" src=/static/images/{{booking.image_file}}>
 
-                    <header>
-                        <h3>{{ booking.name }}</h3>
-                    </header>
+                        <div class="booking-header">
+                        
+                        <header>
+                            <h3>{{ booking.name }}</h3>
+                        </header>
 
-                    <p>{{booking.display_name}}</p>
-                    <p>{{booking.day_booked}}</p>
-                    {%if booking.note%}
-                        <p>Title: {{booking.note}}</p>
-                    {% endif %}
+                        </div>
 
-                    <a href="/delete/booking/{{booking.id}}" onclick="return confirm('Are you sure you want to delete your booking for {{booking.name}} on {{booking.day_booked}} for {{booking.display_name}}?')" >Cancel Booking</a>
+                        <div class="booking-content">
 
+                        <p>{{booking.display_name}}</p>
+                        <p>{{booking.day_booked}}</p>
+                        {%if booking.note%}
+                            <p>Title: {{booking.note}}</p>
+                        {% endif %}
+
+                        </div>
+                        <a href="/delete/booking/{{booking.id}}" id="cancel-booking"onclick="return confirm('Are you sure you want to delete your booking for {{booking.name}} on {{booking.day_booked}} for {{booking.display_name}}?')" >Cancel Booking</a>
                 </div>
 
             {% endfor %}

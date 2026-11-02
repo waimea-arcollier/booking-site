@@ -74,8 +74,8 @@ class TimeslotsTable:
     SEED_DATA = """
         INSERT INTO timeslots (display_name, staff_only, time_start, time_end)
         VALUES
-            ("Before School", false, "0:00", "9:00"),
-            ("Period 1", true, "9:01", "10:00"),
+            ("Before School", false, "00:00", "09:00"),
+            ("Period 1", true, "09:01", "10:00"),
             ("Period 2", true, "10:01", "11:00"),
             ("Break 1", false, "11:01", "11:25"),
             ("Period 3", true, "11:26", "12:25"),

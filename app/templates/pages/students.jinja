@@ -9,30 +9,32 @@
 
     {%if session.logged_in%}
         {% if session.user.staff %}
-                <button class = "nuke_em"> <a href="/delete/all" onclick="return confirm('Are you sure?')" class = "delete_all"> Clear All Student Bookings </a> </button>
+        <button class = "nuke-em" href="/delete/all" onclick="return confirm('Are you sure?')"> Clear All <br> Student Bookings</button>
         {% endif %}
     {% endif %}
 
     
     {%if bookings%}
 
-    <section id="studios">
+    <section id="bookings">
 
         {% for booking in bookings %}
 
-            <div class="studio">
+            <div class="booking">
 
-                <header>
-                    <h3>{{ booking.name }}</h3>
-                </header>
+                <div class="booking-content">
 
-                <p>{{booking.display_name}}</p>
-                <p>{{booking.day_booked}}</p>
-                <p>Booked by: {{booking.email}}</p>
-              
+                    <header>
+                        <h3>{{ booking.name }}</h3>
+                    </header>
 
-                <a href="/delete/booking/{{booking.id}}" onclick="return confirm('Are you sure you want to delete {{ booking.email }}\'s booking for {{booking.name}} on {{booking.day_booked}} for {{booking.display_name}}?')" >Cancel Booking</a>
+                    <p>{{booking.display_name}}</p>
+                    <p>{{booking.day_booked}}</p>
+                    <p>Booked by: {{booking.email}}</p>
 
+                    <a href="/delete/booking/{{booking.id}}" onclick="return confirm('Are you sure you want to delete {{ booking.email }}\'s booking for {{booking.name}} on {{booking.day_booked}} for {{booking.display_name}}?')" >Cancel Booking</a>
+                </div>
+            
             </div>
 
         {% endfor %}

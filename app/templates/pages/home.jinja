@@ -10,7 +10,9 @@
 
     {%if session.logged_in%}
         {% if session.user.staff %}
-                <button class = "nuke_em"> <a href="/delete/all" onclick="return confirm('Are you sure?')" class = "delete_all"> Clear All Student Bookings </a> </button>
+            <form method="GET" action="/delete/all">
+                <button class = "nuke-em" onclick="return confirm('Are you sure?')"> Clear All <br> Student Bookings</button>
+            </form>
         {% endif %}
     {% endif %}
 
@@ -22,6 +24,14 @@
 
                 <header>
                     <h3>{{ studio.name }}</h3>
+
+
+                    {% if studio.booked %}
+                        <p id="status-booked">IN USE</p>
+                    {% else %}
+                        <p id="status-available">OPEN</p>
+                    {% endif %}
+                    
                 </header>
 
                 <img id="studio-image" src=/static/images/{{studio.image_file}}>

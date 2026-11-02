@@ -7,7 +7,7 @@
     --text-col:         #111;
 
     --back-col:         #fff9f3;
-    --back-col-panel:   #fff;
+    --back-col-panel:   #104e04;
 
     --border-col:       #081d01;
 
@@ -45,17 +45,18 @@ body > header {
     align-items: center - 200px;
     justify-content: space-between;
     padding: 1rem;
-    
+     
 
     nav {
         display: flex;
         flex-direction: column; /* Stack items vertically */
-        align-items: flex-start; /* Align children to the left */
+        /* align-items: self-end; */
+        justify-content: space-between;
         width: 200px;
-        height: 100%;
-        background-color: #105a10de;
+        height: 100vh;
+        background-color: #163516;
         padding: 1rem;
-        position: absolute;
+        padding-left: 0;
         bottom: 0;
         right: 0;
         position: fixed; /* Make it stick, even on scroll */
@@ -68,16 +69,25 @@ body > header {
             padding: 10px 15px;
             text-decoration: none;
             text-align: left;
+            font-size: 150%;
+            padding: 1rem;
         }
 
         a.active {
             color:            #fff6ee;
             background-color: #081d01;
+            border-radius: 0px 20px 20px 0px ;
+        }
+
+        a:hover:not(.active) {
+            background-color: #081d015e;
+            border-radius: 0px 20px 20px 0px ;
         }
         
     }
 
 }
+
 
 
 /* Page Headings -----------------------------------------------*/
@@ -107,8 +117,10 @@ main > h2 {
     .studio {
         padding: 1rem;
         box-shadow: 0 0.5rem 1rem #0004;
-        border: 1px solid var(--border-col);
+        border: 2px solid var(--border-col);
         background-color: var(--back-col-panel);
+        color: #fff6ee;
+        border-color: #e7b62e;
 
         header {
             display: flex;
@@ -156,9 +168,44 @@ main > h2 {
 }
 
 div.booking{
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    color: var(--back-col);
 }
 
+div.booking-header{
+    padding-left: 1rem;
+}
+
+div.booking-content{
+    padding-left: 1rem;
+}
+
+button.nuke-em{
+    margin-left: 28%;
+    margin-bottom: 2rem;
+    border-radius: 100%;
+    font-size: large;
+    padding: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    background-color: firebrick;
+    text-decoration: none;
+    color: white;
+    opacity: 0.9;
+    box-shadow: 0 9px #999;
+    transition-duration: 0.4s
+}
+button.nuke-em:hover{
+   opacity: 1;
+}
+button.form-submit{
+    width: 20%
+}
+button.nuke-em:active {
+    box-shadow: 0 10px #727171;
+    transform: translateY(4px);
+  }
 /* Week cal ---------------------------------------------------- */
 #week {
     border-collapse: collapse;
@@ -261,4 +308,43 @@ div.booking{
     width: 30%;
     height: auto;
     display: inline-block;
+}
+
+#book-form-art{
+    align-self: center;
+    margin-left: 250px;
+}
+
+#book-form{
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Adds space between label and input */
+    margin-bottom: 16px; /* Adds space between form groups */
+    align-items: flex-start;
+}
+
+#status-booked{
+    border: 2px solid;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #ff5e00;
+}
+
+#status-available{
+    border: 2px solid;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-color: #e7b62e;
+}
+
+#cancel-booking{
+    text-decoration: wavy;
+    color: var(--back-col);
+    margin-left: auto;
+    align-self: flex-end;
+    
 }

@@ -11,6 +11,7 @@ from io import BytesIO
 import html
 from app.helpers import *
 from datetime import datetime
+import arrow
 
 
 # Create the app
@@ -18,8 +19,9 @@ app = Flask(__name__)
 logged_in = False
 
 
-time = datetime.now()
-weekday = datetime.today().isoweekday()
+
+load_dotenv()
+DEFAULT_TIMEZONE = getenv("DEFAULT_TIMEZONE", "Pacific/Auckland")
 
 #===========================================================
 # App Routes Handlers
@@ -31,20 +33,35 @@ weekday = datetime.today().isoweekday()
 @app.get("/")
 def show_studios():
     with connect_db() as db:
+        day_now = arrow.now(DEFAULT_TIMEZONE).format("ddd")
+        time_now = arrow.now(DEFAULT_TIMEZONE).format("HH:mm")
+        
         sql = """
-            SELECT *
-            FROM studios
+            SELECT id
+            FROM timeslots
+            WHERE ? >= time_start and ? <= time_end
         """
-        params = ()
+        params = (time_now, time_now)
+        slot = db.execute(sql, params).fetchone()
+        slot_id = slot["id"] 
+        
+        sql = """
+            SELECT 
+                studios.id,
+                studios.name,
+                studios.image_file,
+                bookings.id AS booked
+            FROM studios
+            LEFT JOIN bookings 
+                ON studios.id = bookings.studio_booked
+                AND bookings.day_booked = ? 
+                AND bookings.time_booked = ?
+        """
+        params = (day_now, slot_id)
         studios = db.execute(sql, params).fetchall()
         
-        flash("Test message")
+        print(studios)
         
-        
-        print("============================================")
-        print(time)
-        print(weekday)
-
         return render_template("pages/home.jinja", studios=studios)
 
 #-----------------------------------------------------------
@@ -230,12 +247,7 @@ def get(id):
         # Get the workout details from the DB
         sql = """
             SELECT 
-                bookings.id,
-                bookings.studio_booked, 
-                bookings.day_booked, 
-                bookings.time_booked,
-                bookings.user_booked,
-                bookings.note
+                *
                 
             FROM bookings 
             JOIN users ON users.id = bookings.user_booked
@@ -414,7 +426,7 @@ def clear_all():
             sql = "DELETE FROM bookings WHERE user_booked > 1"
             db.execute(sql)
             flash(f"Bookings cleared sucessfully", "success")
-            return redirect("/bookings")
+            return redirect("/")
         else: 
             flash(f"Hey! you're not meant to be here!", "error")
             return redirect("/")

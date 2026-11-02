@@ -11,9 +11,9 @@ Eh???
 
     <section id="book">
 
-      <article class="form" id="book-form">
+      <article class="form" id="book-form-art">
 
-        <form method="post" action="/booking/new">
+        <form method="post" action="/booking/new" id="book-form">
         
             <label>
               Studio: {{ studio_name.name }}
@@ -39,12 +39,11 @@ Eh???
               <input type="hidden" name="note" value="">
             {% endif %}
         
-            <button>Make This Booking</button>
+            <button class:"form-submit">Make This Booking</button>
         </form>
 
+        <a href="/studio/{{studio}}">Go back</a>
       </article>  
-
-      <a href="/studio/{{studio}}">Go back</a>
             
 
     </section>
