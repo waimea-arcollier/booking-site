@@ -7,18 +7,16 @@ Implement the database, populated with test data. Create queries that retrieve t
 
 ### Specific Goals
 
-**Edit these goals as needed**
-
 - Implement the database
 - Add test data to the database
 - Create the following web pages:
-    - Home pages showing...
-    - Details page for ...
-    - Etc.
+    - Home pages showing studios and their current availability
+    - Studio page showing the days of the week and which days are booked
+    - Bookings page showing each students booking (For admin)
 - Develop SQL database queries to:
-    - Retrieve all ...
-    - Retrieve specific ...
-    - Etc.
+    - Retrieve all studios 
+    - Retrieve specific studio along with bookings for that studio
+    - Retrieve all bookings with the students email attatched to their booking
 
 
 ## Testing FEATURE NAME HERE

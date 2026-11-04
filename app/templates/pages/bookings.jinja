@@ -13,9 +13,9 @@
 
             {% for booking in bookings %}
 
-                <div onclick="location.href='/studio/{{booking.studio_booked}}';" style="cursor: pointer;" class="booking">
+                <div class="booking">
 
-                    <img id="booking-image" src=/static/images/{{booking.image_file}}>
+                    <img id="booking-image" onclick="location.href='/studio/{{booking.studio_booked}}';" style="cursor: pointer;" src=/static/images/{{booking.image_file}}>
 
                         <div class="booking-header">
                         
@@ -34,7 +34,7 @@
                         {% endif %}
 
                         </div>
-                        <a href="/delete/booking/{{booking.id}}" id="cancel-booking"onclick="return confirm('Are you sure you want to delete your booking for {{booking.name}} on {{booking.day_booked}} for {{booking.display_name}}?')" >Cancel Booking</a>
+                        <a href="/delete/booking/{{booking.id}}" id="cancel-booking" onclick="return confirm('Are you sure you want to delete your booking for {{booking.name}} on {{booking.day_booked}} for {{booking.display_name}}?')" >Cancel Booking</a>
                 </div>
 
             {% endfor %}

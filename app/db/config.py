@@ -32,8 +32,8 @@ class UsersTable:
     SEED_DATA = """
     INSERT INTO users (username, email, pass_hash, staff)
     VALUES
-        ("admin", "music@waimea.nz", "scrypt:32768:8:1$n7eJTucLbaGmUpAM$c1776374a8d456a6eaf61bccc08db5e1fcc4ff3b3983d364c45ab13074255eeae0a393afb11f99a9fe63fb1d980992ace17a72ba70324523b11e92e36cbe4252", 1),
-        ("test", "test@school.nz", "scrypt:32768:8:1$n7eJTucLbaGmUpAM$c1776374a8d456a6eaf61bccc08db5e1fcc4ff3b3983d364c45ab13074255eeae0a393afb11f99a9fe63fb1d980992ace17a72ba70324523b11e92e36cbe4252", 0)
+        ("admin", "admin@waimea.school.nz", "scrypt:32768:8:1$n7eJTucLbaGmUpAM$c1776374a8d456a6eaf61bccc08db5e1fcc4ff3b3983d364c45ab13074255eeae0a393afb11f99a9fe63fb1d980992ace17a72ba70324523b11e92e36cbe4252", 1),
+        ("test", "test@waimea.school.nz", "scrypt:32768:8:1$n7eJTucLbaGmUpAM$c1776374a8d456a6eaf61bccc08db5e1fcc4ff3b3983d364c45ab13074255eeae0a393afb11f99a9fe63fb1d980992ace17a72ba70324523b11e92e36cbe4252", 0)
     """
 
 class StudiosTable:
@@ -127,7 +127,11 @@ class BookingsTable:
         
         (4, 1, "Wed", 7, "M BLOCK CLOSED"),
         (2, 1, "Thu", 9, "THE SAUCE"),
-        (4, 1, "Fri", 9, "NO BOOKINGS")
+        (4, 1, "Fri", 9, "NO BOOKINGS"),
+        
+        (1, 2, "Mon", 1, ""),
+        (3, 2, "Thu", 7, ""),
+        (4, 2, "Fri", 9, "")
         
     """
 # Add more table classes here...

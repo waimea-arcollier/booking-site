@@ -142,9 +142,25 @@ def add_user():
             """
             params = (username, email, pass_hash)
             db.execute(sql, params)
+            
+            sql = """
+            SELECT id, username, email, pass_hash, staff
+            FROM users
+            WHERE username=?
+            """
+            params = (username,)
+            user = db.execute(sql, params).fetchone()
+            
+            session["logged_in"] = True
+            session["user"] = {
+            "id":       user["id"],
+            "username": user["username"],
+            "email": user["email"],
+            "staff":  user["staff"],
+            }
 
-            flash("Account created. Please login", "success")
-            return redirect("/login")
+            flash("Account created.", "success")
+            return redirect("/")
     else:
         flash(f"Please use a valid Waimea College email adress", "error")
         return redirect("/signup")

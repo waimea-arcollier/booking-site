@@ -97,6 +97,8 @@ main > h2 {
     text-align: center;
     margin-block: 2rem;
     margin-left: -200px;
+    margin-top: -40px;
+    padding-bottom: 20px;
 }
 
 #help{
@@ -140,16 +142,16 @@ main > h2 {
     gap: 2rem;
     grid-template-columns: repeat(1, minmax(min(15rem, 100%), 1fr));
     align-items: start;
-    margin-left:-200px;
+    margin-left: -200px;
 
     .booking {
         padding: 1rem;
         box-shadow: 0 0.5rem 1rem #0004;
-        border: 1px solid var(--border-col);
+        border: 2px solid var(--accent-col);
         background-color: var(--back-col-panel);
+        display: flex;
 
         header {
-            display: flex;
             justify-content: space-between;
             align-items: flex-start;
         }
@@ -157,6 +159,12 @@ main > h2 {
         footer {
             font-size: 0.8rem;
             font-style: italic;
+        }
+
+        a{
+            text-decoration: underline;
+            color: var(--back-col);
+            text-align: flex-end;
         }
     }
 }
@@ -175,10 +183,12 @@ div.booking{
 
 div.booking-header{
     padding-left: 1rem;
+    font-size: larger;
 }
 
 div.booking-content{
-    padding-left: 1rem;
+    padding-left: 3rem;
+    font-size: large;
 }
 
 button.nuke-em{
@@ -199,13 +209,61 @@ button.nuke-em{
 button.nuke-em:hover{
    opacity: 1;
 }
-button.form-submit{
-    width: 20%
-}
+
 button.nuke-em:active {
     box-shadow: 0 10px #727171;
     transform: translateY(4px);
-  }
+
+}
+
+article.form {
+border-radius: 5px;
+background-color: var(--border-col);
+color: var(--back-col);
+padding: 20px;
+margin-left: -200px;
+}
+
+label {display: block;}
+
+input[type=text]{
+width: 100%;
+padding: 12px;
+margin: 8px 0;
+display: inline-block;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+input[type=password]{
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    }
+
+button.form-submit {
+width: 100%;
+background-color: var(--back-col-panel);
+color: white;
+padding: 14px;
+margin: 8px 0;
+border: none;
+border-radius: 4px;
+}
+
+button.form-submit:hover {
+background-color: #19521c;
+}
+
+a.swippyswappy {
+    align-self: center;
+}
+  
 /* Week cal ---------------------------------------------------- */
 #week {
     border-collapse: collapse;
@@ -348,3 +406,9 @@ button.nuke-em:active {
     align-self: flex-end;
     
 }
+
+#book-form-art {
+    margin-left: -5px;
+    font-size: large;
+}
+

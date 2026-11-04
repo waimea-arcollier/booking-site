@@ -2,12 +2,12 @@
 
 ## Project Description
 
-This is an app that ...
+This is an app that allows the students to book studios in waimea colleges M block. It also allows admins control over these bookings.
 
 The app has the following key features:
 - Make bookings of studios
 - Display booked slots and reserved slots to show availability
-- Admin controlls to delete bookings and make bookings during off limits slots
+- Admin controls to delete bookings and make bookings during off limits slots
 - ...
 
 ## Live Site
@@ -35,12 +35,12 @@ Project Evidence
 The following user accounts have been created to demonstrate the features of the system:
 
 Test User 1:
-- Username: xxxxx
-- Password: xxxxx
+- Username: Admin
+- Password: Test
 
 Test User 2:
-- Username: xxxxx
-- Password: xxxxx
+- Username: Test
+- Password: Test
 
 ...
 

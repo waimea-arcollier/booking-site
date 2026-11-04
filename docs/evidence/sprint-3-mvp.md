@@ -10,11 +10,13 @@ Continue to develop the web application to the point that it provides all key fu
 **Edit these goals as needed**
 
 - Create the following web pages:
-    - Form for ...
-    - Etc.
+    - Form for creating an account and logging in
+    - Form to create a booking for the user
+    - Allow users to edit their account info and delete their account
 - Develop SQL database queries to:
-    - Add a new ...
-    - Etc.
+    - Add a new user to the database
+    - Create a new booking and ensure the user cannot book a staff only slot.
+    - Edit an account and delete an account
 
 
 ## Testing FEATURE NAME HERE
@@ -23,7 +25,8 @@ Replace this text with notes about what you are testing, how you tested it, and 
 
 **PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
 
-![Placeholder](screenshots/placeholder.png)
+![Gif](screenshots/sign-up-sucess.gif)
+![Gif](screenshots/sign-up-log-in-fail.gif)
 
 ### Changes / Improvements
 
