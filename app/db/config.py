@@ -158,6 +158,5 @@ TABLES = [
     UsersTable,
     StudiosTable,
     TimeslotsTable
-    # Add more tables here...
 ]
 

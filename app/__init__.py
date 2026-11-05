@@ -442,7 +442,7 @@ def clear_all():
             sql = "DELETE FROM bookings WHERE user_booked > 1"
             db.execute(sql)
             flash(f"Bookings cleared sucessfully", "success")
-            return redirect("/")
+            return redirect(request.refer or "/")
         else: 
             flash(f"Hey! you're not meant to be here!", "error")
             return redirect("/")

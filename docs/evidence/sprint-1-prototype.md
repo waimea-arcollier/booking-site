@@ -27,20 +27,23 @@ Develop a design for the database and a UI prototype that simulates the key func
 
 Replace this text with notes regarding the DB design.
 
-![DB Design](screenshots/placeholder.png)
+![DB Design](screenshots/database.png)
 
 
 ### Required Data Input
 
-Replace this text with a description of what data will be input, and where / how it will be obtained.
+Users will need to create their accounts to input into the users table. Bookings will need to be created by users.
 
 ### Required Data Output
 
-Replace this text with a description of the outputs for the system - what types of data will be displayed?
+All items in studios are for display except the id. Studios will be used in multiple pages.
+users usernames and emails will be displayed in the edit account section and for admins.
+timeslots display names will be displayed in the studios page
+Notes from the booking table will be displayed on the bookings in the studio page
 
 ### Required Data Processing
 
-Replace this text with a description of how the data will be processed to achieve the desired output(s) - any processes / formulae?
+Passwords will need to be hashed before being stored or compared with the database. Users.staff is defaulted to zero. 
 
 
 ## UI 'Flow'
@@ -130,5 +133,4 @@ https://design.penpot.app/#/view?file-id=61fd668e-ca9f-8100-8008-db395d6bedd9&pa
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
-
+This was very helpful on finding out what my end users liked and disliked and provided great feedback on the site.

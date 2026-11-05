@@ -19,51 +19,45 @@ Implement the database, populated with test data. Create queries that retrieve t
     - Retrieve all bookings with the students email attatched to their booking
 
 
-## Testing FEATURE NAME HERE
+## Testing Home page
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+All studios should be displayed with the correct image file and show as unavailable when booked at the current moment 
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-![Placeholder](screenshots/placeholder.png)
+![Placeholder](screenshots/home.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+works as expected.
 
 
-## Testing FEATURE NAME HERE
+## Testing Studio page
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+Timetable for the week should be displayed with bookings displayed
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Placeholder](screenshots/studio-page.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+booked studios were not being displayed. This was a typo in the code which i fixed.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Placeholder](screenshots/studio-page-fixed.png)
 
 
-## Testing FEATURE NAME HERE
+## Testing bookings page
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+student bookings are shown and all bookings can be cleared.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Placeholder](screenshots/students.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+Redirecting for bookings felt clunky. changed it to be consistent.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Placeholder](screenshots/students-fixed.png)
 
-
-## ETC...
 
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+The database is working well. My app is able to connect to the database and make queries & retrieve data. This gives me the basis of my site to build off and develop further functionality into the users and other systems related to the database.
 

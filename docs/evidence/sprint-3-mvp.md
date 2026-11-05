@@ -19,52 +19,48 @@ Continue to develop the web application to the point that it provides all key fu
     - Edit an account and delete an account
 
 
-## Testing FEATURE NAME HERE
+## Testing logging in and signing up
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+Testing the log in page, ensuring it creates the account, allows valid logins, and rejects incorrect inputs such as wrong passwords, pre-existing usernames, and non-waimea emails
 
 ![Gif](screenshots/sign-up-sucess.gif)
 ![Gif](screenshots/sign-up-log-in-fail.gif)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+The log in process after signing in felt clunky and slow, so I changed it to automatically log you in after signing up.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
-
-## Testing FEATURE NAME HERE
-
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Gif](screenshots/auto-log-in.gif)
 
 
-## Testing FEATURE NAME HERE
+## Testing creating new bookings
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+Create new bookings, ensure multiple bookings cannot be created. 
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Gif](screenshots/book-rooms.gif)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+This worked great and no improvements were needed.
 
 
-## ETC...
+## Testing editing account information
+
+Test editing the account, editing the email, and deleting an account. Information should update and account should be fully deleted.
+
+![Gif](screenshots/edit-account.gif)
+![Gif](screenshots/delete-account.gif)
+![Gif](screenshots/edit-email.gif)
+
+### Changes / Improvements
+
+Deleting the account and preventing changing the email to a non waimea address worked well. There was an issue with the display though, as the edits would be made in the database but the session would not update. 
+
+![Gif](screenshots/edit-account-fixed.gif)
+
 
 
 ## Sprint Review
 
-Replace this text with a statement about how the sprint has moved the project forward - key success point, any things that didn't go so well, etc.
+This sprint has identified key usability issues and improved the overall feel of the website.
 

@@ -14,48 +14,40 @@ Develop the system until it is fully featured, with a refined UI and it satisfie
 - Perform final, full-system testing
 
 
-## Testing FEATURE NAME HERE
+## Adding colours
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+I added colours that aligned with my original design.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-![Placeholder](screenshots/placeholder.png)
+![Placeholder](screenshots/colours.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+The clear all button was a new addition, so i improvised some styling for it to keep it from being plain.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
-
-
-## Testing FEATURE NAME HERE
-
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
-
-### Changes / Improvements
-
-Replace this text with notes any improvements you made as a result of the testing.
-
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+![Placeholder](screenshots/colours-extra.png)
 
 
-## Testing FEATURE NAME HERE
+## Formatting
 
-Replace this text with notes about what you are testing, how you tested it, and the outcome of the testing
+I added basic formatting to my forms.
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE TESTING HERE**
+![Placeholder](screenshots/format.png)
 
 ### Changes / Improvements
 
-Replace this text with notes any improvements you made as a result of the testing.
+all looks fine
 
-**PLACE SCREENSHOTS AND/OR ANIMATED GIFS OF THE IMPROVED SYSTEM HERE**
+## Testing blocked access
 
+Logged out users cannot acess log in exclusive pages, and students cannot acess admin pages.
 
-## ETC...
+![Placeholder](screenshots/blocks.gif)
+
+### Changes / Improvements
+
+redirect failed, edited typos to fix.
+
+![Placeholder](screenshots/blocks-fixed.png)
 
 
 ## Sprint Review

@@ -2,36 +2,39 @@
 
 ## Addressing Relevant Implications
 
-### NAME OF IMPLICATION 1
+### USEABILITY
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
-
-
-### NAME OF IMPLICATION 2
-
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+My site has back/home buttons on every page, and a navigational sidebar.
+Users are unable to book rooms in slots already taken as the option is disabled. Deletion of bookings, accounts and creating bookings have confirmation pop ups.
+The site is simple and clear.
+I have help pages for both logged out and logged in users with tips and FAQs relative to the user. I have used clear labels and tooltips to help the user.
 
 
-### NAME OF IMPLICATION 3
+### ACESSIBILITY
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
-
-
-### NAME OF IMPLICATION 4
-
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+Text colours satisfy contrast requirements, and all text is large enough to be read and in fonts that are easily read. The app is mainly navigated via clicks/taps, making it adaptable to ipads and other touchscreen devices.
 
 
-### NAME OF IMPLICATION 5
+### AESTHETICS
 
-Replace this text with notes about what you did during the project to address the implication - design features, etc.
+The design of the site fits within the design language of waimea college, fitting in with the established colour pallete while remaining unique with an engaging vertical nav bar. Buttons are consistent, letting the user know what is and isnt clickable through colour as well as other design elements, improving the flow.
+
+
+### END USER
+
+
+I have stayed in conctact with my end users, and they are very pleased with the end product. My main end user has expressed interest in paying for long term site hosting so she can impliment this in place of the old system.
+
+
+### FUNCTIONALITY
+
+The site is functional, well coded, and prevents and handles errors well. 
 
 
 ## Overall Review
 
-Replace these words with a brief review of how the project went in terms of:
-- What went well?
-- What didn't go so well?
-- How did the testing/trialling impact the final system?
-- What would you do differently if you could?
+- The sites functionality is well done, and the design is what i envisioned.
+- Unfortunately all the features I planned for, such as the book a studio section and animated log in section.
+- The testing helped with identifying reudndant unctions, broken sections,and weak pooints in my site.
+- If i were to do this again i would spend more time refining a ui as parts of it still feel a bit clunky.
 

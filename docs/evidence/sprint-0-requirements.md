@@ -36,7 +36,7 @@ A website that is going to be used by students of all year levels and staff will
 
 Useability heuristics i need to consider include: 
 User control and freedom - The user needs to easily navigate through the site. My site will have back/home buttons on every page, and a navigational sidebar will be visible at all times.
-Error prevention - Users will be unable to book rooms in slots already taken as the option will be disabled. Deletion of bookings, accounts, and log outs will have confirmation pop ups.
+Error prevention - Users will be unable to book rooms in slots already taken as the option will be disabled. Deletion of bookings, accounts, and creating bookings will have confirmation pop ups.
 Aesthetic and minimalist design - I will display only the necessary information in my menus, and reduce clutter where possible. Where more information is needed a user can click to display more.
 Help and documentation - I will have help pages for both logged out and logged in users with tips and FAQs relative to the user. Clear labels and tooltips will also help the user.
 
@@ -65,7 +65,7 @@ A website for Waimea College should match the look and feel of other waimea coll
 
 ### Impact / Considerations
 
-I will use the two main colours on the waimea wesbite, in combination with a pleasing dark mode theme to make the site fit within the design while still being unique and pleasing to the eye. Buttons will consistently be the same colour, letting the user know what is and isnt clickable through colour as well as other design elements, improving the flow.
+I will use the two main colours on the waimea wesbite, in combination with a pleasing light mode theme to make the site fit within the design while still being unique and pleasing to the eye. Buttons will consistently be the same colour, letting the user know what is and isnt clickable through colour as well as other design elements, improving the flow.
 
 
 
